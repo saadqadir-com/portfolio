@@ -27,14 +27,14 @@ const Hero = () => {
           <span className="text-accent">.</span>
         </div>
         <div className="flex gap-8 text-xs tracking-brutal">
-          <a href="#antigravity-laws" className="brutalist-underline hover:text-accent transition-colors">
-            LAWS
+          <a href="#principles" className="brutalist-underline hover:text-accent transition-colors">
+            PRINCIPLES
           </a>
           <a href="#mission-logs" className="brutalist-underline hover:text-accent transition-colors">
-            LOGS
+            CASE STUDIES
           </a>
           <a href="#mission-control" className="brutalist-underline hover:text-accent transition-colors">
-            CONTROL
+            CONTACT
           </a>
         </div>
       </nav>
@@ -44,21 +44,21 @@ const Hero = () => {
         {/* Status line */}
         <div className="flex items-center gap-4 mb-8 opacity-0 animate-fade-in-up">
           <span className="text-xs tracking-ultrawide text-muted-foreground">
-            SYSTEMS // VELOCITY // SCALE
+            ARCHITECTURE // PERFORMANCE // SCALE
           </span>
           <div className="h-px flex-1 bg-border max-w-32" />
         </div>
 
         {/* Main headline */}
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 opacity-0 animate-fade-in-up animation-delay-200">
-          DEFY THE{" "}
-          <span className="text-accent glitch-hover">DRAG</span>
+          BUILD TO{" "}
+          <span className="text-accent glitch-hover">DOMINATE</span>
           <span className="text-accent">.</span>
         </h1>
 
         {/* Subheadline */}
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-12 leading-relaxed opacity-0 animate-fade-in-up animation-delay-400">
-          I architect high-velocity software ecosystems for founders who need to scale without friction.
+          I architect enterprise-grade software systems for founders who refuse to compromise on performance, scalability, or speed to market.
         </p>
 
         {/* CTA Buttons */}
@@ -69,11 +69,11 @@ const Hero = () => {
             onClick={scrollToContact}
             className="group"
           >
-            INITIALIZE AUDIT
+            REQUEST ARCHITECTURE AUDIT
             <ArrowRight className="transition-transform group-hover:translate-x-1" />
           </Button>
           <Button variant="outline" size="lg" asChild>
-            <a href="#mission-logs">VIEW MISSION LOGS</a>
+            <a href="#mission-logs">EXPLORE CASE STUDIES</a>
           </Button>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Download, BookOpen } from "lucide-react";
+import { ArrowRight, Download, BookOpen, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const MissionStandby = () => {
@@ -8,50 +8,54 @@ const MissionStandby = () => {
       <div className="max-w-2xl text-center">
         {/* Status indicator */}
         <div className="inline-flex items-center gap-2 px-4 py-2 border border-border mb-8">
-          <div className="w-2 h-2 bg-accent opacity-70 animate-pulse" />
+          <Mail className="w-4 h-4 text-accent" />
           <span className="text-xs tracking-ultrawide text-muted-foreground">
-            MISSION STATUS: STANDBY
+            REQUEST RECEIVED
           </span>
         </div>
 
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-          TRANSMISSION RECEIVED<span className="text-accent">.</span>
+          THANK YOU<span className="text-accent">.</span>
         </h1>
 
         <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
-          Thank you for your interest. Your current investment tier qualifies for our 
-          resource library. Explore the materials below to prepare for future missions.
+          I've received your request and will review it carefully. In the meantime, 
+          explore these resources to help prepare for your project.
         </p>
 
         {/* Resources */}
         <div className="space-y-4 mb-12">
-          <div className="border border-border p-6 flex items-center justify-between hover:border-muted-foreground transition-colors">
+          <div className="border border-border p-6 flex items-center justify-between hover:border-muted-foreground transition-colors cursor-pointer">
             <div className="flex items-center gap-4">
               <Download className="w-5 h-5 text-accent" />
               <div className="text-left">
-                <div className="font-bold tracking-wide">SYSTEM ARCHITECTURE GUIDE</div>
-                <div className="text-sm text-muted-foreground">PDF • 2.4 MB</div>
+                <div className="font-bold tracking-wide">SYSTEM ARCHITECTURE CHECKLIST</div>
+                <div className="text-sm text-muted-foreground">PDF Guide • Essential pre-build questions</div>
               </div>
             </div>
             <ArrowRight className="w-5 h-5 text-muted-foreground" />
           </div>
 
-          <div className="border border-border p-6 flex items-center justify-between hover:border-muted-foreground transition-colors">
+          <div className="border border-border p-6 flex items-center justify-between hover:border-muted-foreground transition-colors cursor-pointer">
             <div className="flex items-center gap-4">
               <BookOpen className="w-5 h-5 text-accent" />
               <div className="text-left">
-                <div className="font-bold tracking-wide">VELOCITY CHECKLIST</div>
-                <div className="text-sm text-muted-foreground">Interactive Notion Doc</div>
+                <div className="font-bold tracking-wide">SCALING PLAYBOOK</div>
+                <div className="text-sm text-muted-foreground">Interactive guide to building for growth</div>
               </div>
             </div>
             <ArrowRight className="w-5 h-5 text-muted-foreground" />
           </div>
         </div>
 
+        <p className="text-sm text-muted-foreground mb-8">
+          I'll be in touch within 24–48 hours to discuss next steps.
+        </p>
+
         {/* Return link */}
         <Button variant="outline" asChild>
           <Link to="/">
-            RETURN TO BASE
+            ← RETURN HOME
           </Link>
         </Button>
       </div>
