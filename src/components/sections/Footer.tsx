@@ -50,7 +50,7 @@ const Footer = () => {
             © {currentYear} SAAD QADIR. ALL RIGHTS RESERVED.
           </p>
           <p className="text-xs text-muted-foreground tracking-wider">
-            BUILT WITH <span className="text-accent">ANTIGRAVITY</span>
+            ENGINEERED FOR <span className="text-accent">SCALE</span>
           </p>
         </div>
       </div>

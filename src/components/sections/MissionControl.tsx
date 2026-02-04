@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { ArrowRight, ArrowLeft, CheckCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -10,19 +11,23 @@ type InvestmentTier = "seed" | "growth" | "enterprise" | null;
 
 interface FormData {
   name: string;
+  email: string;
   companyUrl: string;
   projectStatus: ProjectStatus;
+  projectBrief: string;
   investmentTier: InvestmentTier;
 }
 
-const MissionControl = () => {
+const ContactSection = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState<FormStep>(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     name: "",
+    email: "",
     companyUrl: "",
     projectStatus: null,
+    projectBrief: "",
     investmentTier: null,
   });
 
@@ -33,7 +38,7 @@ const MissionControl = () => {
   const canProceed = () => {
     switch (step) {
       case 1:
-        return formData.name.trim().length >= 2;
+        return formData.name.trim().length >= 2 && formData.email.includes("@");
       case 2:
         return formData.projectStatus !== null;
       case 3:
@@ -60,15 +65,15 @@ const MissionControl = () => {
   };
 
   const statusOptions = [
-    { value: "idea", label: "IDEA PHASE", desc: "Concept stage, no code yet" },
-    { value: "prototype", label: "PROTOTYPE", desc: "MVP or working demo exists" },
-    { value: "rescue", label: "LEGACY RESCUE", desc: "Existing system needs overhaul" },
+    { value: "idea", label: "CONCEPT STAGE", desc: "I have a validated idea but no code yet" },
+    { value: "prototype", label: "WORKING PROTOTYPE", desc: "MVP exists—needs scaling or refinement" },
+    { value: "rescue", label: "LEGACY OVERHAUL", desc: "Existing system needs complete restructuring" },
   ];
 
   const investmentOptions = [
-    { value: "seed", label: "SEED BUDGET", range: "$1K - $5K", tier: "Basic" },
-    { value: "growth", label: "GROWTH BUDGET", range: "$5K - $15K", tier: "Priority" },
-    { value: "enterprise", label: "ENTERPRISE", range: "$15K+", tier: "VIP" },
+    { value: "seed", label: "STARTER", range: "$1K – $5K", desc: "Ideal for MVPs and initial builds" },
+    { value: "growth", label: "GROWTH", range: "$5K – $15K", desc: "Full feature builds and integrations" },
+    { value: "enterprise", label: "ENTERPRISE", range: "$15K+", desc: "Complex systems and ongoing partnership" },
   ];
 
   return (
@@ -79,16 +84,16 @@ const MissionControl = () => {
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="h-px w-16 bg-border" />
             <span className="text-xs tracking-ultrawide text-muted-foreground">
-              MISSION CONTROL
+              START A PROJECT
             </span>
             <div className="h-px w-16 bg-border" />
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-            READY FOR LIFTOFF<span className="text-accent">?</span>
+            LET'S BUILD SOMETHING<span className="text-accent">.</span>
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            I partner exclusively with visionaries. Not every project is ready for liftoff. 
-            Apply below to see if your mission qualifies.
+          <p className="text-muted-foreground max-w-xl mx-auto text-lg">
+            I work with select founders and teams on high-impact projects. 
+            Share your vision below to see if we're a good fit.
           </p>
         </div>
 
@@ -97,17 +102,17 @@ const MissionControl = () => {
           {[1, 2, 3].map((s) => (
             <div key={s} className="flex items-center">
               <div 
-                className={`w-8 h-8 flex items-center justify-center border transition-all duration-300 ${
+                className={`w-10 h-10 flex items-center justify-center border transition-all duration-300 ${
                   step >= s 
                     ? "border-accent bg-accent text-background" 
                     : "border-border text-muted-foreground"
                 }`}
               >
-                {step > s ? <CheckCircle className="w-4 h-4" /> : s}
+                {step > s ? <CheckCircle className="w-5 h-5" /> : s}
               </div>
               {s < 3 && (
                 <div 
-                  className={`w-12 md:w-24 h-px mx-2 transition-colors duration-300 ${
+                  className={`w-16 md:w-28 h-px mx-2 transition-colors duration-300 ${
                     step > s ? "bg-accent" : "bg-border"
                   }`}
                 />
@@ -120,29 +125,54 @@ const MissionControl = () => {
         <div className="border border-border p-8 md:p-12">
           {/* Step 1: Identity */}
           {step === 1 && (
-            <div className="space-y-8">
+            <div className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-xs tracking-brutal text-muted-foreground mb-3">
+                    YOUR NAME *
+                  </label>
+                  <Input
+                    type="text"
+                    placeholder="Full name"
+                    value={formData.name}
+                    onChange={(e) => updateField("name", e.target.value)}
+                    className="h-14 bg-transparent border-border text-lg placeholder:text-muted-foreground/50 focus:border-accent"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs tracking-brutal text-muted-foreground mb-3">
+                    EMAIL ADDRESS *
+                  </label>
+                  <Input
+                    type="email"
+                    placeholder="you@company.com"
+                    value={formData.email}
+                    onChange={(e) => updateField("email", e.target.value)}
+                    className="h-14 bg-transparent border-border text-lg placeholder:text-muted-foreground/50 focus:border-accent"
+                  />
+                </div>
+              </div>
               <div>
                 <label className="block text-xs tracking-brutal text-muted-foreground mb-3">
-                  YOUR NAME *
+                  COMPANY WEBSITE (OPTIONAL)
                 </label>
                 <Input
-                  type="text"
-                  placeholder="Commander..."
-                  value={formData.name}
-                  onChange={(e) => updateField("name", e.target.value)}
+                  type="url"
+                  placeholder="https://yourcompany.com"
+                  value={formData.companyUrl}
+                  onChange={(e) => updateField("companyUrl", e.target.value)}
                   className="h-14 bg-transparent border-border text-lg placeholder:text-muted-foreground/50 focus:border-accent"
                 />
               </div>
               <div>
                 <label className="block text-xs tracking-brutal text-muted-foreground mb-3">
-                  COMPANY URL (OPTIONAL)
+                  PROJECT BRIEF (OPTIONAL)
                 </label>
-                <Input
-                  type="url"
-                  placeholder="https://..."
-                  value={formData.companyUrl}
-                  onChange={(e) => updateField("companyUrl", e.target.value)}
-                  className="h-14 bg-transparent border-border text-lg placeholder:text-muted-foreground/50 focus:border-accent"
+                <Textarea
+                  placeholder="Tell me about your project in a few sentences..."
+                  value={formData.projectBrief}
+                  onChange={(e) => updateField("projectBrief", e.target.value)}
+                  className="min-h-[120px] bg-transparent border-border text-lg placeholder:text-muted-foreground/50 focus:border-accent resize-none"
                 />
               </div>
             </div>
@@ -152,7 +182,7 @@ const MissionControl = () => {
           {step === 2 && (
             <div className="space-y-4">
               <p className="text-xs tracking-brutal text-muted-foreground mb-6">
-                SELECT YOUR PROJECT STATUS
+                WHERE IS YOUR PROJECT RIGHT NOW?
               </p>
               {statusOptions.map((option) => (
                 <button
@@ -170,7 +200,7 @@ const MissionControl = () => {
                       <div className="text-sm text-muted-foreground">{option.desc}</div>
                     </div>
                     <div 
-                      className={`w-4 h-4 border-2 transition-all ${
+                      className={`w-5 h-5 border-2 transition-all ${
                         formData.projectStatus === option.value
                           ? "border-accent bg-accent"
                           : "border-muted-foreground"
@@ -186,7 +216,7 @@ const MissionControl = () => {
           {step === 3 && (
             <div className="space-y-4">
               <p className="text-xs tracking-brutal text-muted-foreground mb-6">
-                SELECT YOUR INVESTMENT TIER
+                WHAT'S YOUR INVESTMENT RANGE?
               </p>
               {investmentOptions.map((option) => (
                 <button
@@ -202,14 +232,12 @@ const MissionControl = () => {
                     <div>
                       <div className="flex items-center gap-3 mb-1">
                         <span className="font-bold tracking-wide">{option.label}</span>
-                        <span className="text-xs px-2 py-0.5 bg-muted text-muted-foreground">
-                          {option.tier}
-                        </span>
+                        <span className="text-accent font-semibold">{option.range}</span>
                       </div>
-                      <div className="text-accent font-semibold">{option.range}</div>
+                      <div className="text-sm text-muted-foreground">{option.desc}</div>
                     </div>
                     <div 
-                      className={`w-4 h-4 border-2 transition-all ${
+                      className={`w-5 h-5 border-2 transition-all ${
                         formData.investmentTier === option.value
                           ? "border-accent bg-accent"
                           : "border-muted-foreground"
@@ -253,15 +281,20 @@ const MissionControl = () => {
                 disabled={!canProceed() || isSubmitting}
                 className="gap-2"
               >
-                {isSubmitting ? "TRANSMITTING..." : "LAUNCH MISSION"}
+                {isSubmitting ? "SUBMITTING..." : "SUBMIT REQUEST"}
                 <ArrowRight className="w-4 h-4" />
               </Button>
             )}
           </div>
         </div>
+
+        {/* Trust note */}
+        <p className="text-center text-sm text-muted-foreground mt-8">
+          Your information is secure. I'll respond within 24–48 hours.
+        </p>
       </div>
     </section>
   );
 };
 
-export default MissionControl;
+export default ContactSection;

@@ -1,7 +1,7 @@
 import Hero from "@/components/sections/Hero";
-import AntigravityLaws from "@/components/sections/AntigravityLaws";
-import MissionLogs from "@/components/sections/MissionLogs";
-import MissionControl from "@/components/sections/MissionControl";
+import EngineeringPrinciples from "@/components/sections/AntigravityLaws";
+import CaseStudies from "@/components/sections/MissionLogs";
+import ContactSection from "@/components/sections/MissionControl";
 import Footer from "@/components/sections/Footer";
 import { Helmet } from "react-helmet-async";
 
@@ -13,13 +13,14 @@ const Index = () => {
     name: "Saad Qadir",
     url: "https://www.saadqadir.com",
     jobTitle: "Software Architect & CEO",
-    description: "Architecting high-velocity, scalable SaaS systems. Founder of Alpha Brackets. 7+ Years Engineering Experience.",
+    description: "Software Architect & CEO of Alpha Brackets. Building enterprise-grade systems for founders who demand performance, scalability, and speed.",
     knowsAbout: [
       "System Architecture",
       "SaaS Scalability",
       "Enterprise Engineering",
       "Next.js",
-      "Performance Optimization"
+      "Performance Optimization",
+      "Multi-tenant Systems"
     ],
     worksFor: {
       "@type": "Organization",
@@ -38,19 +39,19 @@ const Index = () => {
         <title>Saad Qadir | Software Architect & CEO of Alpha Brackets</title>
         <meta 
           name="description" 
-          content="Architecting high-velocity, scalable SaaS systems. Founder of Alpha Brackets. 7+ Years Engineering Experience. Defy technical debt." 
+          content="Software Architect & CEO building enterprise-grade systems for founders. 7+ years engineering scalable SaaS platforms. Founder of Alpha Brackets." 
         />
         <meta 
           name="keywords" 
-          content="System Architecture, SaaS Scalability, Fractional CTO, Enterprise Engineering, Next.js Performance" 
+          content="System Architecture, SaaS Scalability, Fractional CTO, Enterprise Engineering, Next.js Performance, Multi-tenant Architecture" 
         />
         <meta property="og:title" content="Saad Qadir | Software Architect & CEO" />
-        <meta property="og:description" content="Architecting high-velocity, scalable SaaS systems. Defy the drag." />
+        <meta property="og:description" content="Building enterprise-grade systems for founders who demand performance and scale." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.saadqadir.com" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Saad Qadir | Software Architect" />
-        <meta name="twitter:description" content="Architecting high-velocity, scalable SaaS systems." />
+        <meta name="twitter:description" content="Building enterprise-grade systems for founders who demand performance and scale." />
         <link rel="canonical" href="https://www.saadqadir.com" />
         <script type="application/ld+json">
           {JSON.stringify(jsonLd)}
@@ -59,9 +60,9 @@ const Index = () => {
       
       <main className="overflow-hidden">
         <Hero />
-        <AntigravityLaws />
-        <MissionLogs />
-        <MissionControl />
+        <EngineeringPrinciples />
+        <CaseStudies />
+        <ContactSection />
         <Footer />
       </main>
     </>
