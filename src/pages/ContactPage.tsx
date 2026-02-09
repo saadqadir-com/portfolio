@@ -7,6 +7,8 @@ import { ArrowRight, ArrowLeft, CheckCircle } from "lucide-react";
 import PageLayout from "@/components/layout/PageLayout";
 import SEOHead from "@/components/seo/SEOHead";
 import { profile } from "@/data/profile";
+import { sendContactEmail } from "@/lib/emailjs";
+import { useToast } from "@/hooks/use-toast";
 
 type FormStep = 1 | 2 | 3;
 type ProjectStatus = "idea" | "prototype" | "rescue" | null;
@@ -23,6 +25,7 @@ interface FormData {
 
 const ContactPage = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [step, setStep] = useState<FormStep>(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<FormData>({
@@ -56,9 +59,28 @@ const ContactPage = () => {
 
     setIsSubmitting(true);
 
-    // TODO: Integrate with backend to send actual emails
-    // For now, simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const emailSent = await sendContactEmail(formData);
+
+      if (emailSent) {
+        toast({
+          title: "Request submitted",
+          description: "Your project inquiry has been sent. I'll respond within 24–48 hours.",
+        });
+      } else {
+        toast({
+          title: "Submission received",
+          description: "Email delivery pending — your request has been logged.",
+          variant: "destructive",
+        });
+      }
+    } catch {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or reach out directly via email.",
+        variant: "destructive",
+      });
+    }
 
     // Conditional redirect based on investment tier
     if (formData.investmentTier === "seed") {
@@ -66,6 +88,8 @@ const ContactPage = () => {
     } else {
       navigate("/mission-control/briefing");
     }
+
+    setIsSubmitting(false);
   };
 
   const statusOptions = [
