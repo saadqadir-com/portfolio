@@ -7,7 +7,9 @@ export interface ContactFormData {
   investmentTier: string | null;
 }
 
-export const sendContactEmail = async (data: ContactFormData): Promise<boolean> => {
+export const sendContactEmail = async (
+  data: ContactFormData,
+): Promise<boolean> => {
   try {
     const response = await fetch("/api/send-email", {
       method: "POST",

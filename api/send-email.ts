@@ -33,14 +33,25 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const { name, email, companyUrl, projectStatus, projectBrief, investmentTier } = req.body;
+    const {
+      name,
+      email,
+      companyUrl,
+      projectStatus,
+      projectBrief,
+      investmentTier,
+    } = req.body;
 
     if (!name || !email) {
       return res.status(400).json({ error: "Name and email are required" });
     }
 
-    const status = projectStatus ? STATUS_LABELS[projectStatus] || projectStatus : "Not specified";
-    const tier = investmentTier ? TIER_LABELS[investmentTier] || investmentTier : "Not specified";
+    const status = projectStatus
+      ? STATUS_LABELS[projectStatus] || projectStatus
+      : "Not specified";
+    const tier = investmentTier
+      ? TIER_LABELS[investmentTier] || investmentTier
+      : "Not specified";
 
     const htmlContent = `
       <h2>New Project Inquiry</h2>
@@ -61,7 +72,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Contact Form <noreply@yourdomain.com>",
+        from: "Portfolio <saad@alphabrackets.com>",
         to: [TO_EMAIL],
         reply_to: email,
         subject: `New Project Inquiry from ${name} — ${tier}`,
