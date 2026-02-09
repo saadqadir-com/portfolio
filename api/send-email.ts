@@ -1,7 +1,12 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
+import nodemailer from "nodemailer";
 
-const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const TO_EMAIL = process.env.CONTACT_EMAIL || "hello@yourdomain.com";
+// Using Hostinger SMTP or any standard SMTP service
+const SMTP_HOST = process.env.SMTP_HOST || "smtp.hostinger.com";
+const SMTP_PORT = parseInt(process.env.SMTP_PORT || "465");
+const SMTP_USER = process.env.SMTP_USER;
+const SMTP_PASS = process.env.SMTP_PASS;
+const TO_EMAIL = process.env.CONTACT_EMAIL || "info@alphabrackets.com";
 
 const STATUS_LABELS: Record<string, string> = {
   idea: "Concept Stage — Validated idea, no code yet",
@@ -27,8 +32,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  if (!RESEND_API_KEY) {
-    console.error("RESEND_API_KEY is not configured");
+  if (!SMTP_USER || !SMTP_PASS) {
+    console.error("SMTP credentials are not configured");
     return res.status(500).json({ error: "Email service not configured" });
   }
 
@@ -65,29 +70,28 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       </table>
     `;
 
-    const response = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${RESEND_API_KEY}`,
+    // Create a transporter object using the default SMTP transport
+    const transporter = nodemailer.createTransport({
+      host: SMTP_HOST,
+      port: SMTP_PORT,
+      secure: true, // true for 465, false for other ports
+      auth: {
+        user: SMTP_USER,
+        pass: SMTP_PASS,
       },
-      body: JSON.stringify({
-        from: "Portfolio <saad@alphabrackets.com>",
-        to: [TO_EMAIL],
-        reply_to: email,
-        subject: `New Project Inquiry from ${name} — ${tier}`,
-        html: htmlContent,
-      }),
     });
 
-    if (!response.ok) {
-      const error = await response.text();
-      console.error("Resend API error:", error);
-      return res.status(500).json({ error: "Failed to send email" });
-    }
+    // Send mail with defined transport object
+    const info = await transporter.sendMail({
+      from: `"Portfolio Contact Form" <${SMTP_USER}>`, // sender address
+      to: TO_EMAIL, // list of receivers
+      replyTo: email, // Reply to the user who filled the form
+      subject: `New Project Inquiry from ${name} — ${tier}`, // Subject line
+      html: htmlContent, // html body
+    });
 
-    const data = await response.json();
-    return res.status(200).json({ success: true, id: data.id });
+    console.log("Message sent: %s", info.messageId);
+    return res.status(200).json({ success: true, id: info.messageId });
   } catch (error) {
     console.error("Error sending email:", error);
     return res.status(500).json({ error: "Internal server error" });
