@@ -32,7 +32,7 @@ const Header = () => {
                 "text-xs tracking-brutal transition-colors relative",
                 isActive(item.href)
                   ? "text-accent"
-                  : "text-muted-foreground hover:text-foreground"
+                  : "text-muted-foreground hover:text-foreground",
               )}
             >
               {item.label}
@@ -70,7 +70,7 @@ const Header = () => {
                   "text-sm tracking-brutal py-2 transition-colors",
                   isActive(item.href)
                     ? "text-accent"
-                    : "text-muted-foreground hover:text-foreground"
+                    : "text-muted-foreground hover:text-foreground",
                 )}
               >
                 {item.label}
