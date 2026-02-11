@@ -33,7 +33,7 @@ const HomePage = () => {
           />
         </div>
 
-        <div className="relative z-10 w-full max-w-5xl mx-auto flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 py-12 md:py-24">
+        <div className="relative z-10 w-full max-w-7xl mx-auto flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 py-12 md:py-24">
           {/* Status line */}
           <div className="flex items-center gap-4 mb-8 opacity-0 animate-fade-in-up">
             <span className="text-xs tracking-ultrawide text-muted-foreground">
