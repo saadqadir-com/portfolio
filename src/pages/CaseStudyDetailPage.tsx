@@ -1,22 +1,25 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight, Quote } from "lucide-react";
+import { ArrowLeft, ArrowRight, Quote, ArrowUpRight } from "lucide-react";
 import PageLayout from "@/components/layout/PageLayout";
 import SEOHead from "@/components/seo/SEOHead";
 import { caseStudies } from "@/data/caseStudies";
 
 const CaseStudyDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  
+
   const study = caseStudies.find((cs) => cs.slug === slug);
-  
+
   if (!study) {
     return <Navigate to="/case-studies" replace />;
   }
 
   const currentIndex = caseStudies.findIndex((cs) => cs.slug === slug);
   const prevStudy = currentIndex > 0 ? caseStudies[currentIndex - 1] : null;
-  const nextStudy = currentIndex < caseStudies.length - 1 ? caseStudies[currentIndex + 1] : null;
+  const nextStudy =
+    currentIndex < caseStudies.length - 1
+      ? caseStudies[currentIndex + 1]
+      : null;
 
   return (
     <PageLayout>
@@ -43,13 +46,17 @@ const CaseStudyDetailPage = () => {
             <span className="text-xs tracking-ultrawide text-accent">
               {study.type}
             </span>
-            <span className="text-xs text-muted-foreground">{study.industry}</span>
+            <span className="text-xs text-muted-foreground">
+              {study.industry}
+            </span>
             <span className="text-xs text-muted-foreground">{study.year}</span>
-            <span className="text-xs text-muted-foreground">{study.duration}</span>
+            <span className="text-xs text-muted-foreground">
+              {study.duration}
+            </span>
           </div>
 
           <div className="flex items-start gap-8 mb-8">
-            <span className="text-7xl md:text-9xl font-bold text-muted/10">
+            <span className="text-7xl md:text-9xl font-bold text-foreground/10">
               {study.number}
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight pt-4">
@@ -59,7 +66,7 @@ const CaseStudyDetailPage = () => {
           </div>
 
           {/* Tech Stack */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 mb-8">
             {study.tech.map((tech) => (
               <span
                 key={tech}
@@ -69,6 +76,16 @@ const CaseStudyDetailPage = () => {
               </span>
             ))}
           </div>
+
+          {/* Live Link */}
+          {study.link && (
+            <Button variant="outline" asChild className="gap-2">
+              <a href={study.link} target="_blank" rel="noopener noreferrer">
+                VISIT LIVE SITE
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+            </Button>
+          )}
         </div>
       </section>
 
@@ -164,7 +181,9 @@ const CaseStudyDetailPage = () => {
                   </span>
                 </div>
                 <div>
-                  <div className="font-semibold">{study.testimonial.author}</div>
+                  <div className="font-semibold">
+                    {study.testimonial.author}
+                  </div>
                   <div className="text-sm text-muted-foreground">
                     {study.testimonial.role}
                   </div>

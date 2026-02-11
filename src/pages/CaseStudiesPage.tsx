@@ -12,7 +12,12 @@ const CaseStudiesPage = () => {
         title="Case Studies"
         description="Real engineering challenges. Real solutions. Explore detailed case studies of enterprise systems I've architected and scaled."
         canonical="/case-studies"
-        keywords={["Case Studies", "Portfolio", "Engineering Projects", "SaaS Architecture"]}
+        keywords={[
+          "Case Studies",
+          "Portfolio",
+          "Engineering Projects",
+          "SaaS Architecture",
+        ]}
       />
 
       {/* Hero */}
@@ -49,7 +54,7 @@ const CaseStudiesPage = () => {
                 <div className="grid md:grid-cols-12 gap-6 md:gap-8 items-start">
                   {/* Study ID */}
                   <div className="md:col-span-1">
-                    <span className="text-5xl md:text-6xl font-bold text-muted/20 group-hover:text-accent transition-colors duration-500">
+                    <span className="text-5xl md:text-6xl font-bold text-foreground/10 group-hover:text-accent transition-colors duration-500">
                       {study.number}
                     </span>
                   </div>
@@ -133,14 +138,16 @@ const CaseStudiesPage = () => {
             <div className="flex gap-12">
               <div className="text-right">
                 <div className="text-3xl md:text-4xl font-bold text-accent">
-                  {caseStudies.length}
+                  {caseStudies.filter((cs) => cs.featured).length}
                 </div>
                 <div className="text-xs tracking-brutal text-muted-foreground">
                   FEATURED PROJECTS
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-3xl md:text-4xl font-bold">100+</div>
+                <div className="text-3xl md:text-4xl font-bold">
+                  {caseStudies.length}+
+                </div>
                 <div className="text-xs tracking-brutal text-muted-foreground">
                   SYSTEMS DEPLOYED
                 </div>

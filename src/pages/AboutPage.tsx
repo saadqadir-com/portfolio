@@ -158,11 +158,49 @@ const AboutPage = () => {
             </div>
             <div className="md:col-span-5">
               <div className="aspect-square border border-border flex items-center justify-center bg-background">
-                <span className="text-6xl md:text-8xl font-bold tracking-tighter text-muted/20">
+                <span className="text-6xl md:text-8xl font-bold tracking-tighter text-foreground/10">
                   AB
                 </span>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tech Stack Section */}
+      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 grain">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-16">
+            <span className="text-xs tracking-ultrawide text-muted-foreground block mb-2">
+              OUR TOOLKIT
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+              BUILT ON MODERN FOUNDATIONS<span className="text-accent">.</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {Object.entries(profile.techStack).map(([category, techs]) => (
+              <div
+                key={category}
+                className="p-6 border border-border bg-background hover:border-accent transition-colors group"
+              >
+                <h3 className="text-sm font-bold tracking-wider mb-4 uppercase text-accent">
+                  {category}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {techs.map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-xs text-muted-foreground group-hover:text-foreground transition-colors"
+                    >
+                      {tech}
+                      <span className="text-accent ml-2">/</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -9,7 +9,9 @@ import { blogPosts } from "@/data/blogs";
 import { principles } from "@/data/principles";
 
 const HomePage = () => {
-  const featuredCaseStudies = caseStudies.filter((cs) => cs.featured).slice(0, 3);
+  const featuredCaseStudies = caseStudies
+    .filter((cs) => cs.featured)
+    .slice(0, 3);
   const featuredBlogs = blogPosts.filter((post) => post.featured).slice(0, 2);
   const featuredPrinciples = principles.slice(0, 3);
 
@@ -18,9 +20,9 @@ const HomePage = () => {
       <SEOHead />
 
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex flex-col justify-center px-6 md:px-12 lg:px-24 grain overflow-hidden">
+      <section className="relative min-h-[90vh] flex flex-col justify-between grain overflow-hidden">
         {/* Background grid pattern */}
-        <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 opacity-5 pointer-events-none">
           <div
             className="w-full h-full"
             style={{
@@ -31,7 +33,7 @@ const HomePage = () => {
           />
         </div>
 
-        <div className="relative z-10 max-w-5xl">
+        <div className="relative z-10 w-full max-w-5xl mx-auto flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 py-12 md:py-24">
           {/* Status line */}
           <div className="flex items-center gap-4 mb-8 opacity-0 animate-fade-in-up">
             <span className="text-xs tracking-ultrawide text-muted-foreground">
@@ -42,8 +44,7 @@ const HomePage = () => {
 
           {/* Main headline */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 opacity-0 animate-fade-in-up animation-delay-200">
-            BUILD TO{" "}
-            <span className="text-accent glitch-hover">DOMINATE</span>
+            BUILD TO <span className="text-accent glitch-hover">DOMINATE</span>
             <span className="text-accent">.</span>
           </h1>
 
@@ -67,8 +68,8 @@ const HomePage = () => {
         </div>
 
         {/* Stats bar at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 border-t border-border">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center p-6 md:p-12 gap-6">
+        <div className="w-full border-t border-border z-10 bg-background/50 backdrop-blur-sm">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center p-6 md:p-12 gap-6 w-full max-w-7xl mx-auto">
             <div className="flex gap-12">
               {profile.stats.slice(0, 2).map((stat) => (
                 <div key={stat.label}>
@@ -122,7 +123,7 @@ const HomePage = () => {
                 key={principle.id}
                 className="p-6 border border-border bg-background hover:border-accent transition-colors"
               >
-                <span className="text-4xl font-bold text-muted/20 block mb-4">
+                <span className="text-4xl font-bold text-foreground/10 block mb-4">
                   {principle.number}
                 </span>
                 <h3 className="text-xl font-bold tracking-wide mb-2">
@@ -172,7 +173,7 @@ const HomePage = () => {
                 className="group block border-t border-border py-8 md:py-12"
               >
                 <div className="grid md:grid-cols-12 gap-6 items-start">
-                  <span className="md:col-span-1 text-4xl font-bold text-muted/20 group-hover:text-accent transition-colors">
+                  <span className="md:col-span-1 text-4xl font-bold text-foreground/10 group-hover:text-accent transition-colors">
                     {study.number}
                   </span>
                   <div className="md:col-span-8">

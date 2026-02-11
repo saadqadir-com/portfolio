@@ -87,6 +87,28 @@ const Footer = () => {
                   <ArrowUpRight className="w-3 h-3" />
                 </a>
               </li>
+              <li>
+                <a
+                  href={profile.links.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-foreground hover:text-accent transition-colors inline-flex items-center gap-1"
+                >
+                  Facebook
+                  <ArrowUpRight className="w-3 h-3" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href={profile.links.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-foreground hover:text-accent transition-colors inline-flex items-center gap-1"
+                >
+                  Instagram
+                  <ArrowUpRight className="w-3 h-3" />
+                </a>
+              </li>
             </ul>
           </div>
         </div>
