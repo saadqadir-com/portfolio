@@ -6,7 +6,8 @@ const SMTP_HOST = process.env.SMTP_HOST || "smtp.hostinger.com";
 const SMTP_PORT = parseInt(process.env.SMTP_PORT || "465");
 const SMTP_USER = process.env.SMTP_USER;
 const SMTP_PASS = process.env.SMTP_PASS;
-const TO_EMAIL = process.env.CONTACT_EMAIL || "info@alphabrackets.com";
+const SMTP_FROM = process.env.SMTP_FROM;
+const TO_EMAIL = process.env.SMTP_USER;
 
 const STATUS_LABELS: Record<string, string> = {
   idea: "Concept Stage — Validated idea, no code yet",
@@ -83,7 +84,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // Send mail with defined transport object
     const info = await transporter.sendMail({
-      from: `"Portfolio Contact Form" <${SMTP_USER}>`, // sender address
+      from: `"Portfolio Contact Form" <${SMTP_FROM}>`, // sender address
       to: TO_EMAIL, // list of receivers
       replyTo: email, // Reply to the user who filled the form
       subject: `New Project Inquiry from ${name} — ${tier}`, // Subject line
