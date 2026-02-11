@@ -1,8 +1,17 @@
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Calendar, ArrowRight, Zap, Clock, Users } from "lucide-react";
+import { InlineWidget } from "react-calendly";
+import {
+  CheckCircle,
+  Calendar,
+  ArrowRight,
+  Zap,
+  Clock,
+  Users,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
 import SEOHead from "@/components/seo/SEOHead";
+import { CALENDLY_LINK } from "@/constants";
 
 const MissionBriefing = () => {
   return (
@@ -12,7 +21,7 @@ const MissionBriefing = () => {
         description="Your project qualifies for a direct strategy session. Book your call now."
         canonical="/mission-control/briefing"
       />
-      
+
       <div className="min-h-[80vh] flex flex-col items-center justify-center px-6 md:px-12 py-16 grain">
         <div className="max-w-3xl w-full text-center">
           {/* Status indicator */}
@@ -28,21 +37,37 @@ const MissionBriefing = () => {
           </h1>
 
           <p className="text-lg text-muted-foreground mb-12 leading-relaxed max-w-xl mx-auto">
-            Your project qualifies for a direct strategy session. 
-            Book a time below to discuss your system requirements and roadmap.
+            Your project qualifies for a direct strategy session. Book a time
+            below to discuss your system requirements and roadmap.
           </p>
 
           {/* VIP Benefits */}
           <div className="grid md:grid-cols-3 gap-4 mb-12">
             {[
-              { icon: Clock, label: "30-MINUTE CALL", desc: "Focused strategy session" },
-              { icon: Zap, label: "PRIORITY ACCESS", desc: "Fast-track your project" },
-              { icon: Users, label: "1-ON-1 DIRECT", desc: "No gatekeepers, just me" },
+              {
+                icon: Clock,
+                label: "30-MINUTE CALL",
+                desc: "Focused strategy session",
+              },
+              {
+                icon: Zap,
+                label: "PRIORITY ACCESS",
+                desc: "Fast-track your project",
+              },
+              {
+                icon: Users,
+                label: "1-ON-1 DIRECT",
+                desc: "No gatekeepers, just me",
+              },
             ].map((benefit) => (
               <div key={benefit.label} className="border border-border p-6">
                 <benefit.icon className="w-6 h-6 text-accent mx-auto mb-3" />
-                <div className="text-sm tracking-brutal mb-1">{benefit.label}</div>
-                <div className="text-muted-foreground text-sm">{benefit.desc}</div>
+                <div className="text-sm tracking-brutal mb-1">
+                  {benefit.label}
+                </div>
+                <div className="text-muted-foreground text-sm">
+                  {benefit.desc}
+                </div>
               </div>
             ))}
           </div>
@@ -54,27 +79,22 @@ const MissionBriefing = () => {
               SCHEDULE YOUR CALL
             </h2>
             <p className="text-muted-foreground mb-8">
-              Pick a time that works best for you. I'm typically available Mon–Fri.
+              Pick a time that works best for you. I'm typically available
+              Mon–Fri.
             </p>
-            
-            {/* Calendly embed placeholder */}
-            <div className="bg-secondary p-8 text-center border border-border">
-              <p className="text-sm text-muted-foreground mb-4">
-                Calendly scheduling widget will appear here
-              </p>
-              <Button variant="signal" className="gap-2">
-                <Calendar className="w-4 h-4" />
-                OPEN CALENDAR
-                <ArrowRight className="w-4 h-4" />
-              </Button>
+
+            {/* Calendly embed */}
+            <div className="bg-background border border-border h-[700px] overflow-hidden">
+              <InlineWidget
+                url={CALENDLY_LINK}
+                styles={{ height: "100%", width: "100%" }}
+              />
             </div>
           </div>
 
           {/* Return link */}
           <Button variant="ghost" asChild>
-            <Link to="/">
-              ← RETURN HOME
-            </Link>
+            <Link to="/">← RETURN HOME</Link>
           </Button>
         </div>
       </div>
