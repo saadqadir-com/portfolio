@@ -55,13 +55,23 @@ const HomePage = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in-up animation-delay-600">
-            <Button variant="signal" size="lg" asChild className="group text-sm sm:text-base">
+            <Button
+              variant="signal"
+              size="lg"
+              asChild
+              className="group text-sm sm:text-base"
+            >
               <Link to="/contact">
                 {profile.cta.primary}
                 <ArrowRight className="transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" asChild className="text-sm sm:text-base">
+            <Button
+              variant="outline"
+              size="lg"
+              asChild
+              className="text-sm sm:text-base"
+            >
               <Link to="/case-studies">{profile.cta.secondary}</Link>
             </Button>
           </div>
@@ -273,7 +283,12 @@ const HomePage = () => {
             I partner with select founders and teams on high-impact projects.
             Let's discuss your vision.
           </p>
-          <Button variant="signal" size="lg" asChild className="group text-sm sm:text-base">
+          <Button
+            variant="signal"
+            size="lg"
+            asChild
+            className="group text-sm sm:text-base"
+          >
             <Link to="/contact">
               REQUEST ARCHITECTURE AUDIT
               <ArrowRight className="transition-transform group-hover:translate-x-1" />

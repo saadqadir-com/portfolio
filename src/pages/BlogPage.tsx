@@ -22,7 +22,12 @@ const BlogPage = () => {
         title="Blog"
         description="Insights on software architecture, system design, scaling strategies, and engineering best practices from Saad Qadir."
         canonical="/blog"
-        keywords={["Software Architecture Blog", "Engineering Insights", "System Design", "Tech Blog"]}
+        keywords={[
+          "Software Architecture Blog",
+          "Engineering Insights",
+          "System Design",
+          "Tech Blog",
+        ]}
       />
 
       {/* Hero */}
@@ -65,11 +70,14 @@ const BlogPage = () => {
                   {featuredPost.readTime}
                 </span>
                 <span className="text-xs text-muted-foreground">
-                  {new Date(featuredPost.publishedAt).toLocaleDateString("en-US", {
-                    month: "long",
-                    day: "numeric",
-                    year: "numeric",
-                  })}
+                  {new Date(featuredPost.publishedAt).toLocaleDateString(
+                    "en-US",
+                    {
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    },
+                  )}
                 </span>
               </div>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight mb-4 group-hover:text-accent transition-colors">
@@ -99,7 +107,7 @@ const BlogPage = () => {
                   "text-xs tracking-brutal px-4 py-2 border transition-colors",
                   activeCategory === category
                     ? "border-accent bg-accent text-background"
-                    : "border-border text-muted-foreground hover:text-foreground hover:border-muted-foreground"
+                    : "border-border text-muted-foreground hover:text-foreground hover:border-muted-foreground",
                 )}
               >
                 {category.toUpperCase()}

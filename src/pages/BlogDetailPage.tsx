@@ -16,7 +16,8 @@ const BlogDetailPage = () => {
 
   const currentIndex = blogPosts.findIndex((p) => p.slug === slug);
   const prevPost = currentIndex > 0 ? blogPosts[currentIndex - 1] : null;
-  const nextPost = currentIndex < blogPosts.length - 1 ? blogPosts[currentIndex + 1] : null;
+  const nextPost =
+    currentIndex < blogPosts.length - 1 ? blogPosts[currentIndex + 1] : null;
 
   // Simple markdown-like rendering
   const renderContent = (content: string) => {
@@ -34,32 +35,41 @@ const BlogDetailPage = () => {
           elements.push(
             <ul key={`list-${index}`} className="space-y-2 mb-6 ml-4">
               {currentList.map((item, i) => (
-                <li key={i} className="text-muted-foreground flex items-start gap-2">
+                <li
+                  key={i}
+                  className="text-muted-foreground flex items-start gap-2"
+                >
                   <span className="text-accent">→</span>
                   {item}
                 </li>
               ))}
-            </ul>
+            </ul>,
           );
           currentList = [];
           inList = false;
         }
         elements.push(
-          <h2 key={index} className="text-2xl font-bold tracking-wide mt-12 mb-4">
+          <h2
+            key={index}
+            className="text-2xl font-bold tracking-wide mt-12 mb-4"
+          >
             {trimmedLine.replace("## ", "")}
-          </h2>
+          </h2>,
         );
       } else if (trimmedLine.startsWith("### ")) {
         if (inList && currentList.length > 0) {
           elements.push(
             <ul key={`list-${index}`} className="space-y-2 mb-6 ml-4">
               {currentList.map((item, i) => (
-                <li key={i} className="text-muted-foreground flex items-start gap-2">
+                <li
+                  key={i}
+                  className="text-muted-foreground flex items-start gap-2"
+                >
                   <span className="text-accent">→</span>
                   {item}
                 </li>
               ))}
-            </ul>
+            </ul>,
           );
           currentList = [];
           inList = false;
@@ -67,7 +77,7 @@ const BlogDetailPage = () => {
         elements.push(
           <h3 key={index} className="text-xl font-bold tracking-wide mt-8 mb-3">
             {trimmedLine.replace("### ", "")}
-          </h3>
+          </h3>,
         );
       } else if (trimmedLine.startsWith("- ") || trimmedLine.match(/^\d+\./)) {
         inList = true;
@@ -77,12 +87,15 @@ const BlogDetailPage = () => {
           elements.push(
             <ul key={`list-${index}`} className="space-y-2 mb-6 ml-4">
               {currentList.map((item, i) => (
-                <li key={i} className="text-muted-foreground flex items-start gap-2">
+                <li
+                  key={i}
+                  className="text-muted-foreground flex items-start gap-2"
+                >
                   <span className="text-accent">→</span>
                   {item}
                 </li>
               ))}
-            </ul>
+            </ul>,
           );
           currentList = [];
           inList = false;
@@ -90,14 +103,14 @@ const BlogDetailPage = () => {
         // Bold text handling
         const formattedLine = trimmedLine.replace(
           /\*\*(.*?)\*\*/g,
-          '<strong class="text-foreground font-semibold">$1</strong>'
+          '<strong class="text-foreground font-semibold">$1</strong>',
         );
         elements.push(
           <p
             key={index}
             className="text-muted-foreground leading-relaxed mb-4"
             dangerouslySetInnerHTML={{ __html: formattedLine }}
-          />
+          />,
         );
       }
     });
@@ -107,12 +120,15 @@ const BlogDetailPage = () => {
       elements.push(
         <ul key="list-final" className="space-y-2 mb-6 ml-4">
           {currentList.map((item, i) => (
-            <li key={i} className="text-muted-foreground flex items-start gap-2">
+            <li
+              key={i}
+              className="text-muted-foreground flex items-start gap-2"
+            >
               <span className="text-accent">→</span>
               {item}
             </li>
           ))}
-        </ul>
+        </ul>,
       );
     }
 
@@ -150,7 +166,9 @@ const BlogDetailPage = () => {
             <span className="text-xs tracking-brutal text-accent">
               {post.category}
             </span>
-            <span className="text-xs text-muted-foreground">{post.readTime}</span>
+            <span className="text-xs text-muted-foreground">
+              {post.readTime}
+            </span>
             <span className="text-xs text-muted-foreground">
               {new Date(post.publishedAt).toLocaleDateString("en-US", {
                 month: "long",
@@ -177,7 +195,9 @@ const BlogDetailPage = () => {
             </div>
             <div>
               <div className="font-semibold">{post.author.name}</div>
-              <div className="text-sm text-muted-foreground">{post.author.role}</div>
+              <div className="text-sm text-muted-foreground">
+                {post.author.role}
+              </div>
             </div>
           </div>
         </div>

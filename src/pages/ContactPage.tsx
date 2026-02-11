@@ -37,7 +37,10 @@ const ContactPage = () => {
     investmentTier: null,
   });
 
-  const updateField = <K extends keyof FormData>(field: K, value: FormData[K]) => {
+  const updateField = <K extends keyof FormData>(
+    field: K,
+    value: FormData[K],
+  ) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
@@ -65,7 +68,8 @@ const ContactPage = () => {
       if (emailSent) {
         toast({
           title: "Request submitted",
-          description: "Your project inquiry has been sent. I'll respond within 24–48 hours.",
+          description:
+            "Your project inquiry has been sent. I'll respond within 24–48 hours.",
         });
       } else {
         toast({
@@ -93,15 +97,42 @@ const ContactPage = () => {
   };
 
   const statusOptions = [
-    { value: "idea", label: "CONCEPT STAGE", desc: "I have a validated idea but no code yet" },
-    { value: "prototype", label: "WORKING PROTOTYPE", desc: "MVP exists—needs scaling or refinement" },
-    { value: "rescue", label: "LEGACY OVERHAUL", desc: "Existing system needs complete restructuring" },
+    {
+      value: "idea",
+      label: "CONCEPT STAGE",
+      desc: "I have a validated idea but no code yet",
+    },
+    {
+      value: "prototype",
+      label: "WORKING PROTOTYPE",
+      desc: "MVP exists—needs scaling or refinement",
+    },
+    {
+      value: "rescue",
+      label: "LEGACY OVERHAUL",
+      desc: "Existing system needs complete restructuring",
+    },
   ];
 
   const investmentOptions = [
-    { value: "seed", label: "STARTER", range: "$1K – $5K", desc: "Ideal for MVPs and initial builds" },
-    { value: "growth", label: "GROWTH", range: "$5K – $15K", desc: "Full feature builds and integrations" },
-    { value: "enterprise", label: "ENTERPRISE", range: "$15K+", desc: "Complex systems and ongoing partnership" },
+    {
+      value: "seed",
+      label: "STARTER",
+      range: "$1K – $5K",
+      desc: "Ideal for MVPs and initial builds",
+    },
+    {
+      value: "growth",
+      label: "GROWTH",
+      range: "$5K – $15K",
+      desc: "Full feature builds and integrations",
+    },
+    {
+      value: "enterprise",
+      label: "ENTERPRISE",
+      range: "$15K+",
+      desc: "Complex systems and ongoing partnership",
+    },
   ];
 
   return (
@@ -110,7 +141,12 @@ const ContactPage = () => {
         title="Contact"
         description="Request an architecture audit from Saad Qadir. I partner with select founders and teams on high-impact projects."
         canonical="/contact"
-        keywords={["Contact", "Architecture Audit", "Consultation", "Hire Software Architect"]}
+        keywords={[
+          "Contact",
+          "Architecture Audit",
+          "Consultation",
+          "Hire Software Architect",
+        ]}
       />
 
       <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 grain min-h-[80vh]">
@@ -128,8 +164,8 @@ const ContactPage = () => {
               LET'S BUILD SOMETHING<span className="text-accent">.</span>
             </h1>
             <p className="text-muted-foreground max-w-xl mx-auto text-lg">
-              I work with select founders and teams on high-impact projects. Share
-              your vision below to see if we're a good fit.
+              I work with select founders and teams on high-impact projects.
+              Share your vision below to see if we're a good fit.
             </p>
           </div>
 
@@ -207,7 +243,9 @@ const ContactPage = () => {
                   <Textarea
                     placeholder="Tell me about your project in a few sentences..."
                     value={formData.projectBrief}
-                    onChange={(e) => updateField("projectBrief", e.target.value)}
+                    onChange={(e) =>
+                      updateField("projectBrief", e.target.value)
+                    }
                     className="min-h-[120px] bg-transparent border-border text-lg placeholder:text-muted-foreground/50 focus:border-accent resize-none"
                   />
                 </div>
@@ -223,7 +261,12 @@ const ContactPage = () => {
                 {statusOptions.map((option) => (
                   <button
                     key={option.value}
-                    onClick={() => updateField("projectStatus", option.value as ProjectStatus)}
+                    onClick={() =>
+                      updateField(
+                        "projectStatus",
+                        option.value as ProjectStatus,
+                      )
+                    }
                     className={`w-full text-left p-6 border transition-all duration-300 ${
                       formData.projectStatus === option.value
                         ? "border-accent bg-accent/10"
@@ -232,8 +275,12 @@ const ContactPage = () => {
                   >
                     <div className="flex justify-between items-center">
                       <div>
-                        <div className="font-bold tracking-wide mb-1">{option.label}</div>
-                        <div className="text-sm text-muted-foreground">{option.desc}</div>
+                        <div className="font-bold tracking-wide mb-1">
+                          {option.label}
+                        </div>
+                        <div className="text-sm text-muted-foreground">
+                          {option.desc}
+                        </div>
                       </div>
                       <div
                         className={`w-5 h-5 border-2 transition-all ${
@@ -257,7 +304,12 @@ const ContactPage = () => {
                 {investmentOptions.map((option) => (
                   <button
                     key={option.value}
-                    onClick={() => updateField("investmentTier", option.value as InvestmentTier)}
+                    onClick={() =>
+                      updateField(
+                        "investmentTier",
+                        option.value as InvestmentTier,
+                      )
+                    }
                     className={`w-full text-left p-6 border transition-all duration-300 ${
                       formData.investmentTier === option.value
                         ? "border-accent bg-accent/10"
@@ -267,10 +319,16 @@ const ContactPage = () => {
                     <div className="flex justify-between items-center">
                       <div>
                         <div className="flex items-center gap-3 mb-1">
-                          <span className="font-bold tracking-wide">{option.label}</span>
-                          <span className="text-accent font-semibold">{option.range}</span>
+                          <span className="font-bold tracking-wide">
+                            {option.label}
+                          </span>
+                          <span className="text-accent font-semibold">
+                            {option.range}
+                          </span>
                         </div>
-                        <div className="text-sm text-muted-foreground">{option.desc}</div>
+                        <div className="text-sm text-muted-foreground">
+                          {option.desc}
+                        </div>
                       </div>
                       <div
                         className={`w-5 h-5 border-2 transition-all ${

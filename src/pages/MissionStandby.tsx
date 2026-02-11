@@ -12,7 +12,7 @@ const MissionStandby = () => {
         description="Thank you for your request. We'll be in touch within 24-48 hours."
         canonical="/mission-control/standby"
       />
-      
+
       <div className="min-h-[80vh] flex flex-col items-center justify-center px-6 md:px-12 grain">
         <div className="max-w-2xl text-center">
           {/* Status indicator */}
@@ -28,8 +28,8 @@ const MissionStandby = () => {
           </h1>
 
           <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
-            I've received your request and will review it carefully. In the meantime, 
-            explore these resources to help prepare for your project.
+            I've received your request and will review it carefully. In the
+            meantime, explore these resources to help prepare for your project.
           </p>
 
           {/* Resources */}
@@ -38,8 +38,12 @@ const MissionStandby = () => {
               <div className="flex items-center gap-4">
                 <Download className="w-5 h-5 text-accent" />
                 <div className="text-left">
-                  <div className="font-bold tracking-wide">SYSTEM ARCHITECTURE CHECKLIST</div>
-                  <div className="text-sm text-muted-foreground">PDF Guide • Essential pre-build questions</div>
+                  <div className="font-bold tracking-wide">
+                    SYSTEM ARCHITECTURE CHECKLIST
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    PDF Guide • Essential pre-build questions
+                  </div>
                 </div>
               </div>
               <ArrowRight className="w-5 h-5 text-muted-foreground" />
@@ -49,8 +53,12 @@ const MissionStandby = () => {
               <div className="flex items-center gap-4">
                 <BookOpen className="w-5 h-5 text-accent" />
                 <div className="text-left">
-                  <div className="font-bold tracking-wide">SCALING PLAYBOOK</div>
-                  <div className="text-sm text-muted-foreground">Interactive guide to building for growth</div>
+                  <div className="font-bold tracking-wide">
+                    SCALING PLAYBOOK
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    Interactive guide to building for growth
+                  </div>
                 </div>
               </div>
               <ArrowRight className="w-5 h-5 text-muted-foreground" />
@@ -63,9 +71,7 @@ const MissionStandby = () => {
 
           {/* Return link */}
           <Button variant="outline" asChild>
-            <Link to="/">
-              ← RETURN HOME
-            </Link>
+            <Link to="/">← RETURN HOME</Link>
           </Button>
         </div>
       </div>
