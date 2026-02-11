@@ -33,7 +33,7 @@ const HomePage = () => {
           />
         </div>
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 py-12 md:py-24">
+        <div className="relative z-10 w-full max-w-7xl mx-auto flex-1 flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-24 py-12 md:py-24">
           {/* Status line */}
           <div className="flex items-center gap-4 mb-8 opacity-0 animate-fade-in-up">
             <span className="text-xs tracking-ultrawide text-muted-foreground">
@@ -55,13 +55,13 @@ const HomePage = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in-up animation-delay-600">
-            <Button variant="signal" size="lg" asChild className="group">
+            <Button variant="signal" size="lg" asChild className="group text-sm sm:text-base">
               <Link to="/contact">
                 {profile.cta.primary}
                 <ArrowRight className="transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" asChild>
+            <Button variant="outline" size="lg" asChild className="text-sm sm:text-base">
               <Link to="/case-studies">{profile.cta.secondary}</Link>
             </Button>
           </div>
@@ -69,7 +69,7 @@ const HomePage = () => {
 
         {/* Stats bar at bottom */}
         <div className="w-full border-t border-border z-10 bg-background/50 backdrop-blur-sm">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center p-6 md:p-12 gap-6 w-full max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center p-4 sm:p-6 md:p-12 gap-6 w-full max-w-7xl mx-auto">
             <div className="flex gap-12">
               {profile.stats.slice(0, 2).map((stat) => (
                 <div key={stat.label}>
@@ -98,7 +98,7 @@ const HomePage = () => {
       </section>
 
       {/* Principles Preview */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-secondary grain">
+      <section className="py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24 bg-secondary grain">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-12">
             <div>
@@ -146,7 +146,7 @@ const HomePage = () => {
       </section>
 
       {/* Case Studies Preview */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 grain">
+      <section className="py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24 grain">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-12">
             <div>
@@ -210,7 +210,7 @@ const HomePage = () => {
       </section>
 
       {/* Blog Preview */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-secondary grain">
+      <section className="py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24 bg-secondary grain">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-12">
             <div>
@@ -264,7 +264,7 @@ const HomePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 grain">
+      <section className="py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24 grain">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
             READY TO BUILD<span className="text-accent">?</span>
@@ -273,7 +273,7 @@ const HomePage = () => {
             I partner with select founders and teams on high-impact projects.
             Let's discuss your vision.
           </p>
-          <Button variant="signal" size="lg" asChild className="group">
+          <Button variant="signal" size="lg" asChild className="group text-sm sm:text-base">
             <Link to="/contact">
               REQUEST ARCHITECTURE AUDIT
               <ArrowRight className="transition-transform group-hover:translate-x-1" />
