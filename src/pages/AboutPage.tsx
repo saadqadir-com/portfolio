@@ -109,15 +109,7 @@ const AboutPage = () => {
                     LinkedIn
                     <ArrowRight className="w-3 h-3" />
                   </a>
-                  <a
-                    href={profile.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-foreground hover:text-accent transition-colors flex items-center gap-2"
-                  >
-                    GitHub
-                    <ArrowRight className="w-3 h-3" />
-                  </a>
+
                   <a
                     href={`mailto:${profile.email}`}
                     className="text-sm text-foreground hover:text-accent transition-colors flex items-center gap-2"

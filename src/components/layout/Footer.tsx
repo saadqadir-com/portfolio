@@ -12,12 +12,16 @@ const Footer = () => {
         <div className="grid md:grid-cols-12 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-4">
-            <Link to="/" className="text-2xl tracking-brutal font-bold inline-block mb-4">
+            <Link
+              to="/"
+              className="text-2xl tracking-brutal font-bold inline-block mb-4"
+            >
               <span className="text-foreground">SQ</span>
               <span className="text-accent">.</span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
-              Software Architect & CEO building enterprise-grade systems for founders who demand performance and scale.
+              Software Architect & CEO building enterprise-grade systems for
+              founders who demand performance and scale.
             </p>
           </div>
 
@@ -80,17 +84,6 @@ const Footer = () => {
                   className="text-sm text-foreground hover:text-accent transition-colors inline-flex items-center gap-1"
                 >
                   LinkedIn
-                  <ArrowUpRight className="w-3 h-3" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href={profile.links.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-foreground hover:text-accent transition-colors inline-flex items-center gap-1"
-                >
-                  GitHub
                   <ArrowUpRight className="w-3 h-3" />
                 </a>
               </li>

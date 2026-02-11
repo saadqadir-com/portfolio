@@ -71,6 +71,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       </table>
     `;
 
+    const textContent = `
+New Project Inquiry
+
+Name: ${name}
+Email: ${email}
+Company URL: ${companyUrl || "Not provided"}
+Project Status: ${status}
+Project Brief: ${projectBrief || "No brief provided"}
+Investment Tier: ${tier}
+    `;
+
     // Create a transporter object using the default SMTP transport
     const transporter = nodemailer.createTransport({
       host: SMTP_HOST,
@@ -88,6 +99,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       to: TO_EMAIL, // list of receivers
       replyTo: email, // Reply to the user who filled the form
       subject: `New Project Inquiry from ${name} — ${tier}`, // Subject line
+      text: textContent, // plain text body
       html: htmlContent, // html body
     });
 

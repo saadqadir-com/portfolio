@@ -1,73 +1,107 @@
-# Welcome to your Lovable project
+# Saad Qadir - Portfolio & Mission Control
 
-## Project info
+A high-performance personal portfolio website featuring a unique "Mission Control" theme, detailed case studies, and a technical blog. Built with modern web technologies to demonstrate engineering and design capabilities.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🚀 Key Features
 
-## How can I edit this code?
+- **Mission Control Theme**: An immersive, gamified contact experience that treats project inquiries as "missions", featuring a multi-step onboarding flow.
+- **Case Studies Showcase**: Detailed breakdown of projects with problem/solution analysis and technical deep dives (`/case-studies`).
+- **Technical Blog**: Integrated blog section for sharing insights and engineering thoughts (`/blog`).
+- **Responsive Design**: Fully responsive UI built with **Tailwind CSS** and **Shadcn UI**.
+- **Serverless Backend**: Custom API routes for email handling hosted on **Vercel Serverless Functions**.
+- **SEO Optimized**: Implements **React Helmet** for dynamic metadata management.
+- **Type-Safe**: Written in **TypeScript** for robustness and maintainability.
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+### Frontend
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- **Framework**: [React](https://react.dev) + [Vite](https://vitejs.dev)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com) + [Shadcn UI](https://ui.shadcn.com)
+- **State Management**: [React Query (TanStack Query)](https://tanstack.com/query/latest)
+- **Forms**: [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/)
+- **Routing**: [React Router](https://reactrouter.com/)
+- **Icons**: [Lucide React](https://lucide.dev)
 
-Changes made via Lovable will be committed automatically to this repo.
+### Backend / Infrastructure
 
-**Use your preferred IDE**
+- **Serverless**: Vercel Functions (Node.js)
+- **Email**: `nodemailer` (via serverless API)
+- **Hosting**: Vercel
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 📂 Project Structure
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+├── api/                # Vercel Serverless Functions
+│   └── send-email.ts   # Email handling logic
+├── src/
+│   ├── components/     # Reusable UI components
+│   │   ├── layout/     # Layout wrappers (Header, Footer)
+│   │   ├── seo/        # SEO/Helmet components
+│   │   └── ui/         # Shadcn UI primitives
+│   ├── data/           # Static data (profile, projects)
+│   ├── hooks/          # Custom React hooks
+│   ├── lib/            # Utilities and helpers (emailjs, utils)
+│   ├── pages/          # Route components (HomePage, ContactPage, etc.)
+│   └── App.tsx         # Main application entry and routing
+└── public/             # Static assets
 ```
 
-**Edit a file directly in GitHub**
+## ⚡ Getting Started
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Prerequisites
 
-**Use GitHub Codespaces**
+- Node.js (v18+ recommended)
+- npm or pnpm
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Installation
 
-## What technologies are used for this project?
+1.  **Clone the repository**
 
-This project is built with:
+    ```bash
+    git clone https://github.com/saadqadir-com/portfolio.git
+    cd portfolio
+    ```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+2.  **Install dependencies**
 
-## How can I deploy this project?
+    ```bash
+    npm install
+    ```
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+3.  **Environment Setup**
+    Create a `.env` file in the root directory (copy from `.env.example` if available) and configure your environment variables:
 
-## Can I connect a custom domain to my Lovable project?
+    ```env
+    # Example variables (adjust based on your actual .env requirements)
+    VITE_APP_URL=http://localhost:5173
+    EMAIL_USER=your-email@example.com
+    EMAIL_PASS=your-email-password
+    ```
 
-Yes, you can!
+4.  **Run Development Server**
+    ```bash
+    npm run dev
+    ```
+    Open [http://localhost:8080](http://localhost:8080) (or the port shown in terminal) to view it in the browser.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📜 Scripts
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- `npm run dev`: Start the development server.
+- `npm run build`: Build the app for production.
+- `npm run preview`: Preview the production build locally.
+- `npm run lint`: Run ESLint to check for code quality issues.
+- `npm test`: Run tests with Vitest.
+
+## 🤝 Contributing
+
+1.  Fork the project.
+2.  Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4.  Push to the branch (`git push origin feature/AmazingFeature`).
+5.  Open a Pull Request.
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).

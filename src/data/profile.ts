@@ -4,7 +4,8 @@ export const profile = {
   company: {
     name: "Alpha Brackets",
     url: "https://alphabrackets.com",
-    description: "A full-service digital engineering firm building enterprise-grade systems.",
+    description:
+      "A full-service digital engineering firm building enterprise-grade systems.",
   },
   tagline: "ARCHITECTURE // PERFORMANCE // SCALE",
   headline: "BUILD TO DOMINATE.",
@@ -32,11 +33,10 @@ My philosophy is simple: software should never be the bottleneck. Whether you're
     "DevOps & CI/CD",
   ],
   links: {
-    linkedin: "https://linkedin.com/in/saadqadir",
-    github: "https://github.com/saadqadir",
+    linkedin: "https://www.linkedin.com/in/saadqadirofficial",
     website: "https://www.saadqadir.com",
   },
-  email: "hello@saadqadir.com",
+  email: "saad@alphabrackets.com",
   cta: {
     primary: "REQUEST ARCHITECTURE AUDIT",
     secondary: "EXPLORE CASE STUDIES",
@@ -69,5 +69,5 @@ export const seo = {
   ],
   url: "https://www.saadqadir.com",
   ogImage: "/og-image.jpg",
-  twitterHandle: "@saadqadir",
+  twitterHandle: "@saadqadirofc",
 };

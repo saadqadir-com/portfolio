@@ -40,7 +40,7 @@ const SEOHead = ({
       name: profile.company.name,
       url: profile.company.url,
     },
-    sameAs: [profile.links.linkedin, profile.links.github],
+    sameAs: [profile.links.linkedin],
   };
 
   return (
@@ -69,7 +69,10 @@ const SEOHead = ({
 
       {/* Article-specific meta */}
       {article?.publishedTime && (
-        <meta property="article:published_time" content={article.publishedTime} />
+        <meta
+          property="article:published_time"
+          content={article.publishedTime}
+        />
       )}
       {article?.author && (
         <meta property="article:author" content={article.author} />
