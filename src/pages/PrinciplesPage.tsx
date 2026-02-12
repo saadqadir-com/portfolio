@@ -38,8 +38,8 @@ const PrinciplesPage = () => {
       />
 
       {/* Hero */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 grain">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24 grain">
+        <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-4 mb-8">
             <div className="h-px flex-1 bg-border max-w-24" />
             <span className="text-xs tracking-ultrawide text-muted-foreground">
@@ -59,7 +59,7 @@ const PrinciplesPage = () => {
       </section>
 
       {/* Principles Grid */}
-      <section className="py-12 md:py-16 px-6 md:px-12 lg:px-24 bg-secondary grain">
+      <section className="py-12 md:py-16 px-4 sm:px-6 md:px-12 lg:px-24 bg-secondary grain">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {principles.map((principle) => {
@@ -105,7 +105,7 @@ const PrinciplesPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 grain">
+      <section className="py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24 grain">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
             READY TO APPLY THESE PRINCIPLES

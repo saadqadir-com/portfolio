@@ -13,7 +13,7 @@ const MissionStandby = () => {
         canonical="/mission-control/standby"
       />
 
-      <div className="min-h-[80vh] flex flex-col items-center justify-center px-6 md:px-12 grain">
+      <div className="min-h-[80vh] flex flex-col items-center justify-center px-4 sm:px-6 md:px-12 lg:px-24 grain">
         <div className="max-w-2xl text-center">
           {/* Status indicator */}
           <div className="inline-flex items-center gap-2 px-4 py-2 border border-border mb-8">

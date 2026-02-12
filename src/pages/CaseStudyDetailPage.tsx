@@ -31,8 +31,8 @@ const CaseStudyDetailPage = () => {
       />
 
       {/* Hero */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 grain">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24 grain">
+        <div className="max-w-7xl mx-auto">
           {/* Back link */}
           <Link
             to="/case-studies"
@@ -90,8 +90,8 @@ const CaseStudyDetailPage = () => {
       </section>
 
       {/* Metrics Bar */}
-      <section className="py-8 px-6 md:px-12 lg:px-24 bg-secondary border-y border-border">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-8 px-4 sm:px-6 md:px-12 lg:px-24 bg-secondary border-y border-border">
+        <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {study.metrics.map((metric) => (
               <div key={metric.label}>
@@ -108,8 +108,8 @@ const CaseStudyDetailPage = () => {
       </section>
 
       {/* Challenge Section */}
-      <section className="py-16 md:py-24 px-6 md:px-12 lg:px-24 grain">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-16 md:py-24 px-4 sm:px-6 md:px-12 lg:px-24 grain">
+        <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-12 gap-12">
             <div className="md:col-span-4">
               <span className="text-xs tracking-brutal text-muted-foreground">
@@ -137,8 +137,8 @@ const CaseStudyDetailPage = () => {
       </section>
 
       {/* Solution Section */}
-      <section className="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-secondary grain">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-16 md:py-24 px-4 sm:px-6 md:px-12 lg:px-24 bg-secondary grain">
+        <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-12 gap-12">
             <div className="md:col-span-4">
               <span className="text-xs tracking-brutal text-muted-foreground">
@@ -167,7 +167,7 @@ const CaseStudyDetailPage = () => {
 
       {/* Testimonial */}
       {study.testimonial && (
-        <section className="py-16 md:py-24 px-6 md:px-12 lg:px-24 grain">
+        <section className="py-16 md:py-24 px-4 sm:px-6 md:px-12 lg:px-24 grain">
           <div className="max-w-4xl mx-auto">
             <div className="border border-border p-8 md:p-12 relative">
               <Quote className="w-8 h-8 text-accent absolute top-8 left-8 opacity-50" />
@@ -195,8 +195,8 @@ const CaseStudyDetailPage = () => {
       )}
 
       {/* Navigation */}
-      <section className="py-12 px-6 md:px-12 lg:px-24 border-t border-border">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-12 px-4 sm:px-6 md:px-12 lg:px-24 border-t border-border">
+        <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-center">
             {prevStudy ? (
               <Link
@@ -236,7 +236,7 @@ const CaseStudyDetailPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-secondary grain">
+      <section className="py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24 bg-secondary grain">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
             WANT SIMILAR RESULTS<span className="text-accent">?</span>

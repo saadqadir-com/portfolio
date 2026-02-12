@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <nav className="flex justify-between items-center px-6 md:px-12 lg:px-24 h-16 md:h-20">
+      <nav className="flex justify-between items-center px-4 sm:px-6 md:px-12 lg:px-24 h-16 md:h-20">
         {/* Logo */}
         <Link to="/" className="text-lg tracking-brutal font-bold">
           <span className="text-foreground">SQ</span>

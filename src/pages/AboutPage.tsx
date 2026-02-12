@@ -15,8 +15,8 @@ const AboutPage = () => {
       />
 
       {/* Hero */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 grain">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24 grain">
+        <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-4 mb-8">
             <div className="h-px flex-1 bg-border max-w-24" />
             <span className="text-xs tracking-ultrawide text-muted-foreground">
@@ -125,8 +125,8 @@ const AboutPage = () => {
       </section>
 
       {/* Company Section */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-secondary grain">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24 bg-secondary grain">
+        <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-12 gap-12 items-center">
             <div className="md:col-span-7">
               <span className="text-xs tracking-ultrawide text-accent block mb-4">
@@ -168,8 +168,8 @@ const AboutPage = () => {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 grain">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24 grain">
+        <div className="max-w-7xl mx-auto">
           <div className="mb-16">
             <span className="text-xs tracking-ultrawide text-muted-foreground block mb-2">
               OUR TOOLKIT

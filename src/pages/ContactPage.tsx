@@ -149,7 +149,7 @@ const ContactPage = () => {
         ]}
       />
 
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 grain min-h-[80vh]">
+      <section className="py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24 grain min-h-[80vh]">
         <div className="max-w-4xl mx-auto">
           {/* Section header */}
           <div className="mb-16 text-center">
