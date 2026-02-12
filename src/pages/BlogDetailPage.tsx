@@ -151,7 +151,7 @@ const BlogDetailPage = () => {
       />
 
       {/* Hero */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 grain">
+      <section className="py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24 grain">
         <div className="max-w-4xl mx-auto">
           {/* Back link */}
           <Link
@@ -204,7 +204,7 @@ const BlogDetailPage = () => {
       </section>
 
       {/* Content */}
-      <section className="pb-16 md:pb-24 px-6 md:px-12 lg:px-24">
+      <section className="pb-16 md:pb-24 px-4 sm:px-6 md:px-12 lg:px-24">
         <div className="max-w-4xl mx-auto">
           <article className="prose prose-invert max-w-none">
             {renderContent(post.content)}
@@ -230,7 +230,7 @@ const BlogDetailPage = () => {
       </section>
 
       {/* Navigation */}
-      <section className="py-12 px-6 md:px-12 lg:px-24 border-t border-border">
+      <section className="py-12 px-4 sm:px-6 md:px-12 lg:px-24 border-t border-border">
         <div className="max-w-4xl mx-auto">
           <div className="flex justify-between items-center">
             {prevPost ? (
@@ -271,7 +271,7 @@ const BlogDetailPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-secondary grain">
+      <section className="py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24 bg-secondary grain">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
             WANT TO DISCUSS THIS<span className="text-accent">?</span>

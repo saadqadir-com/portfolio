@@ -31,8 +31,8 @@ const BlogPage = () => {
       />
 
       {/* Hero */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 grain">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24 grain">
+        <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-4 mb-8">
             <div className="h-px flex-1 bg-border max-w-24" />
             <span className="text-xs tracking-ultrawide text-muted-foreground">
@@ -53,7 +53,7 @@ const BlogPage = () => {
 
       {/* Featured Post */}
       {featuredPost && (
-        <section className="py-12 px-6 md:px-12 lg:px-24 bg-secondary grain">
+        <section className="py-12 px-4 sm:px-6 md:px-12 lg:px-24 bg-secondary grain">
           <div className="max-w-7xl mx-auto">
             <span className="text-xs tracking-brutal text-muted-foreground mb-6 block">
               FEATURED ARTICLE
@@ -96,7 +96,7 @@ const BlogPage = () => {
       )}
 
       {/* Category Filter */}
-      <section className="py-8 px-6 md:px-12 lg:px-24 border-b border-border">
+      <section className="py-8 px-4 sm:px-6 md:px-12 lg:px-24 border-b border-border">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap gap-2">
             {blogCategories.map((category) => (
@@ -118,7 +118,7 @@ const BlogPage = () => {
       </section>
 
       {/* Blog Posts Grid */}
-      <section className="py-12 md:py-16 px-6 md:px-12 lg:px-24 grain">
+      <section className="py-12 md:py-16 px-4 sm:px-6 md:px-12 lg:px-24 grain">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredPosts.map((post) => (

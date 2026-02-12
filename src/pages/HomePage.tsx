@@ -59,7 +59,7 @@ const HomePage = () => {
               variant="signal"
               size="lg"
               asChild
-              className="group text-sm sm:text-base"
+              className="group text-sm sm:text-base w-fit"
             >
               <Link to="/contact">
                 {profile.cta.primary}
@@ -70,7 +70,7 @@ const HomePage = () => {
               variant="outline"
               size="lg"
               asChild
-              className="text-sm sm:text-base"
+              className="text-sm sm:text-base w-fit"
             >
               <Link to="/case-studies">{profile.cta.secondary}</Link>
             </Button>
@@ -79,7 +79,7 @@ const HomePage = () => {
 
         {/* Stats bar at bottom */}
         <div className="w-full border-t border-border z-10 bg-background/50 backdrop-blur-sm">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center p-4 sm:p-6 md:p-12 gap-6 w-full max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center px-4 sm:px-6 md:px-12 lg:px-24 py-4 sm:py-6 gap-6 w-full max-w-7xl mx-auto">
             <div className="flex gap-12">
               {profile.stats.slice(0, 2).map((stat) => (
                 <div key={stat.label}>

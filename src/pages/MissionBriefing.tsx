@@ -22,7 +22,7 @@ const MissionBriefing = () => {
         canonical="/mission-control/briefing"
       />
 
-      <div className="min-h-[80vh] flex flex-col items-center justify-center px-6 md:px-12 py-16 grain">
+      <div className="min-h-[80vh] flex flex-col items-center justify-center px-4 sm:px-6 md:px-12 lg:px-24 py-16 grain">
         <div className="max-w-3xl w-full text-center">
           {/* Status indicator */}
           <div className="inline-flex items-center gap-2 px-4 py-2 border border-accent bg-accent/10 mb-8">
