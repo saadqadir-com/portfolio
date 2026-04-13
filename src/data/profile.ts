@@ -61,7 +61,7 @@ export const navigation = [
   { label: "ABOUT", href: "/about" },
   { label: "PRINCIPLES", href: "/principles" },
   { label: "CASE STUDIES", href: "/case-studies" },
-  { label: "BLOG", href: "/blog" },
+  { label: "BLOGS", href: "/blogs" },
   { label: "CONTACT", href: "/contact" },
 ];
 

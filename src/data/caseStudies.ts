@@ -43,13 +43,14 @@ export const caseStudies: CaseStudy[] = [
       "CRM for customer management and updates",
     ],
     solution:
-      "Built a high-performance platform with real-time job tracking, automated inventory alerts, and a streamlined billing engine.",
+      "Built a high-performance platform with real-time job tracking, automated inventory alerts, and a integrated CRM.",
     solutionDetails: [
-      "Implemented TypeORM for high-performance SQL query execution",
-      "Designed a real-time bay scheduling system",
-      "Created automated low-stock alerts and reordering workflows",
-      "Built a custom billing engine handling parts, labor, and tax rules",
-      "Integrated secure role-based access for mechanics and managers",
+      "Designed a real-time bay scheduling and workflow tracking system",
+      "Created automated inventory alerts with low-stock reordering logic",
+      "Built a seamless real-time communication portal for garage staff",
+      "Built a custom billing engine handling complex parts and labor rules",
+      "Integrated vehicle diagnostic APIs for automated fault logging",
+      "Developed an integrated CRM for management and automated SMS updates",
     ],
     tech: [
       "React",
@@ -89,10 +90,10 @@ export const caseStudies: CaseStudy[] = [
       "Hexadesk is a cutting-edge task management application tailored for construction companies. It streamlines operations with features like task management, interactive maps, AI-driven assistance, and project management tools.",
     solutionDetails: [
       "Built interactive maps for site visualization and task tracking",
-      "Implemented AI-driven assistance for project planning",
+      "Implemented AI-driven assistance for optimized project planning",
       "Designed a real-time task management system with WebSocket updates",
-      "Integrated Stripe Connect for seamless contractor payments",
-      "Created a unified dashboard for project oversight",
+      "Integrated Stripe Connect for seamless and transparent payments",
+      "Optimized resource allocation via real-time project oversight",
     ],
     tech: [
       "React.js",
@@ -123,7 +124,7 @@ export const caseStudies: CaseStudy[] = [
     industry: "EdTech",
     year: "2024",
     duration: "4 months",
-    link: "https://mpacoaching.com/",
+    // link: "https://mpacoaching.com/",
     challenge:
       "Students, homeowners, and companies lacked a centralized platform to connect, leading to missed opportunities for growth and collaboration.",
     challengeDetails: [
@@ -131,16 +132,16 @@ export const caseStudies: CaseStudy[] = [
       "Manual processes for matching students with opportunities",
       "Lack of centralized progress tracking",
       "Inefficient communication channels",
-      "Need for distinct, secure portals for each uesr role",
+      "Need for distinct, secure portals for each user role",
     ],
     solution:
       "MPA Coaching is a dynamic platform bridging opportunities for students, homeowners, and companies, fostering connections for growth and success.",
     solutionDetails: [
       "Built distinct portals for Students, Hosts, and Companies",
-      "Implemented secure authentication for multiple user roles",
-      "Designed a unified dashboard for managing connections",
-      "Integrated real-time updates using TanStack Query",
-      "Utilized Mantine UI for a responsive and accessible design",
+      "Automated student-opportunity matching based on AI profiles",
+      "Designed a unified dashboard for centralized progress tracking",
+      "Designed an integrated communication channel for stakeholders",
+      "Implemented secure role-based access for multi-user security",
     ],
     tech: [
       "React",
@@ -171,20 +172,20 @@ export const caseStudies: CaseStudy[] = [
     challenge:
       "Businesses needed a better way to connect with reviewers and affiliates to drive authentic engagement and growth.",
     challengeDetails: [
-      "Fragmented connections between businesses and reviewers",
-      "Lack of transparency in affiliate marketing",
-      "Difficulty in tracking engagement and ROI",
-      "Need for a unified platform for all stakeholders",
-      "Manual processes slowing down collaboration",
+      "Friction in On-Site Feedback: Local businesses struggle to capture reviews at the point of service",
+      "Reputation Damage: Public platforms often amplify negative, unverified feedback that hurts local brands",
+      "Low Search Visibility: Small local businesses are often overshadowed by chains in generic search results",
+      "Untracked Reputation ROI: Businesses lack data on how review management translates to engagement",
+      "Scaling Growth: Difficulty in incentivizing loyal customers to actively promote local businesses",
     ],
     solution:
-      "Reword Platform is an innovative platform that connects businesses, reviewers, and affiliates, creating a unique ecosystem for growth and engagement.",
+      "Reword is a cutting-edge reputation management platform that bridges the physical-digital gap with smart review routing and an integrated affiliate ecosystem.",
     solutionDetails: [
-      "Built a unified marketplace for businesses and reviewers",
-      "Implemented secure affiliate tracking and management",
-      "Designed a real-time dashboard for engagement metrics",
-      "Integrated automated matching algorithms",
-      "Utilized Mantine UI for a seamless user experience",
+      "Integrated QR and NFC hardware to trigger seamless review workflows during real-world visits",
+      "Built a Smart Routing Engine that keeps constructive feedback private while pushing positive reviews public",
+      "Developed a Localized Discovery Engine and SEO-optimized profiles to highlight top-rated spots",
+      "Implemented a real-time analytics suite tracking engagement, review sentiment, and visibility metrics",
+      "Architected a commission-based affiliate system to turn users and partners into active growth drivers",
     ],
     tech: [
       "React",
@@ -217,18 +218,18 @@ export const caseStudies: CaseStudy[] = [
     challengeDetails: [
       "Frequent internet outages disrupting hospital operations",
       "Need for real-time access to patient records without connectivity",
-      "Complex data synchronization when connectivity is restored",
+      "Complex data synchronization once internet is restored",
       "Distinct workflows for receptionists and doctors",
       "Requirement for secure, local-first data storage",
     ],
     solution:
       "Healthline is a hospital management project designed with an offline-first approach for seamless operations. It features reception management, finance tracking, and patient notes.",
     solutionDetails: [
-      "Architected an offline-first architecture using PouchDB",
-      "Built a desktop application with Electron.js for native performance",
-      "Implemented automatic data synchronization with conflict resolution",
+      "Architected a robust offline-first PouchDB architecture",
+      "Built a high-performance desktop app for low-connectivity sites",
+      "Implemented automatic sync with conflict resolution logic",
       "Designed tailored interfaces for Reception and Doctor roles",
-      "Utilized Mantine UI for a clean, accessible interface",
+      "Developed a centralized local storage engine for data security",
     ],
     tech: ["React", "Electron.js", "TypeScript", "PouchDB", "Mantine UI"],
     metrics: [
@@ -261,14 +262,17 @@ export const caseStudies: CaseStudy[] = [
     solution:
       "PushStarter is an innovative task management app that helps users achieve their goals by generating AI-driven, step-by-step action plans.",
     solutionDetails: [
-      "Integrated AI to generate detailed, step-by-step action plans",
-      "Built a cross-platform mobile app with React Native and Expo",
-      "Implemented Stripe Connect for premium features and subscriptions",
-      "Designed a clean, intuitive UI with Paper Native UI",
-      "Created progress tracking with visual analytics",
+      "Integrated AI to generate detailed, actionable step plans",
+      "Built a unified cross-platform mobile app for all goals",
+      "Created visual analytics for tracking complex workflows",
+      "Implemented push-notification habit-streak mechanisms",
+      "Centralized tools for plan generation and daily execution",
     ],
     tech: [
+      "NextJs",
+      "React",
       "React Native",
+      "Express",
       "Expo",
       "TypeScript",
       "Redux.js",
@@ -305,11 +309,11 @@ export const caseStudies: CaseStudy[] = [
     solution:
       "Built a comprehensive course management system with a Laravel backend and React frontend, ensuring data integrity and ease of use.",
     solutionDetails: [
-      "Utilized Laravel for secure and scalable API development",
-      "Designed a relational database schema in MySQL",
-      "Built a responsive admin dashboard with Bootstrap",
-      "Implemented role-based access control for admins, teachers, and students",
-      "Streamlined enrollment workflows reducing administrative overhead",
+      "Designed a real-time schedule and conflict detection engine",
+      "Streamlined enrollment workflows with automated data entry",
+      "Built a centralized documents repository for course materials",
+      "Implemented automated notification system for course updates",
+      "Architected a relational schema for high data integrity",
     ],
     tech: ["React", "Laravel", "PHP", "Bootstrap", "MySQL"],
     metrics: [
@@ -339,13 +343,13 @@ export const caseStudies: CaseStudy[] = [
       "Outdated publishing workflows",
     ],
     solution:
-      "Karla is an AI-driven platform revolutionizing fashion journalism, connecting writers, readers, and publishers to create, share, and distribute compelling content seamlessly.",
+      "Karla is an AI-driven platform revolutionizing fashion journalism, connecting writers, readers, and publishers to create, share, and distribute content.",
     solutionDetails: [
-      "Integrated AI for content assistance and trend analysis",
-      "Built a seamless connection hub for writers and publishers",
-      "Designed a modern, responsive UI with Mantine UI",
-      "Implemented state management with Redux.js",
-      "Ensured code quality with strict ESLint configurations",
+      "Streamlined distribution via cross-platform sharing hooks",
+      "Integrated AI for automated content and trend analysis",
+      "Built a seamless connection hub for all stakeholders",
+      "Designed an automated sharing engine for content creators",
+      "Centralized publisher-writer collaboration workspace",
     ],
     tech: [
       "React",
@@ -384,11 +388,11 @@ export const caseStudies: CaseStudy[] = [
     solution:
       "Plurppl is a comprehensive event management system that seamlessly connects event owners, vendors, performers, and stakeholders in a unified hub.",
     solutionDetails: [
-      "Developed a cross-platform mobile app with React Native and Expo",
-      "Built a real-time web chat system using WebSockets",
-      "Designed a responsive web dashboard with Mantine UI",
-      "Implemented seamless vendor and performer matching",
-      "Ensured consistent state management with Redux.js",
+      "Built a real-time web chat system for stakeholder comm",
+      "Implemented automated vendor and performer matching",
+      "Designed a real-time dashboard for event status updates",
+      "Architected a centralized logistics engine for venue tracking",
+      "Developed a cross-platform mobile app for on-site execution",
     ],
     tech: [
       "React.js",
@@ -429,11 +433,11 @@ export const caseStudies: CaseStudy[] = [
     solution:
       "Casper LMS is a comprehensive learning platform offering diverse educational resources and tools to support skill development and professional growth.",
     solutionDetails: [
-      "Built a robust frontend with Angular and TypeScript",
-      "Designed a clean, material-based UI with Material-UI",
-      "Implemented responsive layouts using Tailwind CSS",
-      "Created structured learning paths and progress tracking",
-      "Integrated resource libraries for easy access",
+      "Integrated resource libraries for centralized easy access",
+      "Created structured learning paths for user guidance",
+      "Built visual progress tracking for professional growth",
+      "Designed an intuitive tools dashboard for all materials",
+      "Implemented a responsive, mobile-first design strategy",
     ],
     tech: ["Angular", "Material-UI", "TypeScript", "Tailwind CSS"],
     metrics: [

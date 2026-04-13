@@ -1,23 +1,26 @@
+"use client";
+
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { navigation } from "@/data/profile";
 import { cn } from "@/lib/utils";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   const isActive = (href: string) => {
-    if (href === "/") return location.pathname === "/";
-    return location.pathname.startsWith(href);
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
   };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <nav className="flex justify-between items-center px-4 sm:px-6 md:px-12 lg:px-24 h-16 md:h-20">
         {/* Logo */}
-        <Link to="/" className="text-lg tracking-brutal font-bold">
+        <Link href="/" className="text-lg tracking-brutal font-bold">
           <span className="text-foreground">SQ</span>
           <span className="text-accent">.</span>
         </Link>
@@ -27,7 +30,7 @@ const Header = () => {
           {navigation.map((item) => (
             <Link
               key={item.href}
-              to={item.href}
+              href={item.href}
               className={cn(
                 "text-xs tracking-brutal transition-colors relative",
                 isActive(item.href)
@@ -64,7 +67,7 @@ const Header = () => {
             {navigation.map((item) => (
               <Link
                 key={item.href}
-                to={item.href}
+                href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={cn(
                   "text-sm tracking-brutal py-2 transition-colors",

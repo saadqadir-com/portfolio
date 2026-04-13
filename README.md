@@ -6,46 +6,45 @@ A high-performance personal portfolio website featuring a unique "Mission Contro
 
 - **Mission Control Theme**: An immersive, gamified contact experience that treats project inquiries as "missions", featuring a multi-step onboarding flow.
 - **Case Studies Showcase**: Detailed breakdown of projects with problem/solution analysis and technical deep dives (`/case-studies`).
-- **Technical Blog**: Integrated blog section for sharing insights and engineering thoughts (`/blog`).
+- **Technical Blog**: Integrated blog section for sharing insights and engineering thoughts (`/blogs`).
 - **Responsive Design**: Fully responsive UI built with **Tailwind CSS** and **Shadcn UI**.
-- **Serverless Backend**: Custom API routes for email handling hosted on **Vercel Serverless Functions**.
-- **SEO Optimized**: Implements **React Helmet** for dynamic metadata management.
+- **SEO Optimized**: Leverages **Next.js Metadata API** for dynamic SEO, Open Graph, and Twitter tags.
+- **Performance**: Powered by **Next.js 16 (Turbopack)** for lightning-fast development and optimized production builds.
 - **Type-Safe**: Written in **TypeScript** for robustness and maintainability.
 
 ## 🛠️ Tech Stack
 
-### Frontend
+### Frontend & Framework
 
-- **Framework**: [React](https://react.dev) + [Vite](https://vitejs.dev)
+- **Framework**: [Next.js 16](https://nextjs.org) (App Router)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com) + [Shadcn UI](https://ui.shadcn.com)
 - **State Management**: [React Query (TanStack Query)](https://tanstack.com/query/latest)
 - **Forms**: [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/)
-- **Routing**: [React Router](https://reactrouter.com/)
 - **Icons**: [Lucide React](https://lucide.dev)
+- **Analytics**: Vercel Analytics & Speed Insights
 
 ### Backend / Infrastructure
 
-- **Serverless**: Vercel Functions (Node.js)
-- **Email**: `nodemailer` (via serverless API)
+- **Serverless**: Next.js API Routes (Route Handlers)
+- **Email**: `nodemailer` with SMTP configuration
 - **Hosting**: Vercel
 
 ## 📂 Project Structure
 
 ```
-├── api/                # Vercel Serverless Functions
-│   └── send-email.ts   # Email handling logic
 ├── src/
+│   ├── app/            # Next.js App Router (Pages & Layouts)
 │   ├── components/     # Reusable UI components
 │   │   ├── layout/     # Layout wrappers (Header, Footer)
-│   │   ├── seo/        # SEO/Helmet components
 │   │   └── ui/         # Shadcn UI primitives
-│   ├── data/           # Static data (profile, projects)
-│   ├── hooks/          # Custom React hooks
-│   ├── lib/            # Utilities and helpers (emailjs, utils)
-│   ├── pages/          # Route components (HomePage, ContactPage, etc.)
-│   └── App.tsx         # Main application entry and routing
-└── public/             # Static assets
+│   ├── data/           # Static data (profile, projects, blog content)
+│   ├── hooks/          # Custom React hooks (Queries & Logic)
+│   ├── lib/            # Utilities and helper functions
+│   ├── constants/      # Project-wide constants and config
+│   └── views/          # Complex page-specific view components
+├── public/             # Static assets (images, icons, robots.txt)
+└── components.json     # Shadcn UI configuration
 ```
 
 ## ⚡ Getting Started
@@ -71,28 +70,33 @@ A high-performance personal portfolio website featuring a unique "Mission Contro
     ```
 
 3.  **Environment Setup**
-    Create a `.env` file in the root directory (copy from `.env.example` if available) and configure your environment variables:
+    Create a `.env` file in the root directory and configure your SMTP credentials and other settings:
 
     ```env
-    # Example variables (adjust based on your actual .env requirements)
-    VITE_APP_URL=http://localhost:5173
-    EMAIL_USER=your-email@example.com
-    EMAIL_PASS=your-email-password
+    # SMTP Configuration
+    SMTP_USER=your-email@example.com
+    SMTP_PASS=your-password
+    SMTP_FROM=your-sender-email@example.com
+    SMTP_HOST=smtp.your-provider.com
+    SMTP_PORT=465
+
+    # Public Variables
+    NEXT_PUBLIC_URL=http://localhost:3000
+    VITE_CALENDLY_LINK=your-link # Backward compatibility or update as needed
     ```
 
 4.  **Run Development Server**
     ```bash
     npm run dev
     ```
-    Open [http://localhost:8080](http://localhost:8080) (or the port shown in terminal) to view it in the browser.
+    Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## 📜 Scripts
 
-- `npm run dev`: Start the development server.
-- `npm run build`: Build the app for production.
-- `npm run preview`: Preview the production build locally.
-- `npm run lint`: Run ESLint to check for code quality issues.
-- `npm test`: Run tests with Vitest.
+- `npm run dev`: Start the development server with Turbopack.
+- `npm run build`: Build the application for production.
+- `npm run start`: Start the production server.
+- `npm run lint`: Run Next.js lint check.
 
 ## 🤝 Contributing
 

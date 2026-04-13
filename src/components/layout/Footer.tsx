@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { profile, navigation } from "@/data/profile";
 
@@ -13,7 +13,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-4">
             <Link
-              to="/"
+              href="/"
               className="text-2xl tracking-brutal font-bold inline-block mb-4"
             >
               <span className="text-foreground">SQ</span>
@@ -34,7 +34,7 @@ const Footer = () => {
               {navigation.map((item) => (
                 <li key={item.href}>
                   <Link
-                    to={item.href}
+                    href={item.href}
                     className="text-sm text-foreground hover:text-accent transition-colors"
                   >
                     {item.label}
@@ -60,7 +60,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/contact"
+                  href="/contact"
                   className="text-sm text-accent hover:text-accent/80 transition-colors inline-flex items-center gap-1"
                 >
                   Request Audit
