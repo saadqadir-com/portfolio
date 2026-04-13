@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import PageLayout from "@/components/layout/PageLayout";
 import { blogPosts } from "@/data/blogs";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 const BlogDetailPage = () => {
   const params = useParams();
@@ -33,7 +33,7 @@ const BlogDetailPage = () => {
   // Simple markdown-like rendering
   const renderContent = (content: string) => {
     const lines = content.trim().split("\n");
-    const elements: JSX.Element[] = [];
+    const elements: React.ReactNode[] = [];
     let currentList: string[] = [];
     let inList = false;
 
