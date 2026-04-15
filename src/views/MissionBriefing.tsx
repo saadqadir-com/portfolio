@@ -1,24 +1,60 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { InlineWidget } from "react-calendly";
-import {
-  CheckCircle,
-  Calendar,
-  ArrowRight,
-  Zap,
-  Clock,
-  Users,
-} from "lucide-react";
+import { useRouter } from "next/navigation";
+import Cal, { getCalApi } from "@calcom/embed-react";
+import { useEffect, useState } from "react";
+import { CheckCircle, Calendar, Zap, Clock, Users } from "lucide-react";
 import Link from "next/link";
 import PageLayout from "@/components/layout/PageLayout";
-import { CALENDLY_LINK } from "@/constants";
+import { CAL_LINK, CAL_ORIGIN } from "@/constants";
 
 const MissionBriefing = () => {
+  const router = useRouter();
+  const [isBooked, setIsBooked] = useState(false);
+
+  // Retrieve pre-fill data
+  const name =
+    typeof window !== "undefined" ? sessionStorage.getItem("user_name") : "";
+  const email =
+    typeof window !== "undefined" ? sessionStorage.getItem("user_email") : "";
+  const notes =
+    typeof window !== "undefined" ? sessionStorage.getItem("user_notes") : "";
+
+  useEffect(() => {
+    // Security check: Redirect if not authorized via contact form
+    const isAuthorized = sessionStorage.getItem("mission_control_access");
+    if (!isAuthorized) {
+      router.push("/contact");
+      return;
+    }
+
+    (async function () {
+      const cal = await getCalApi(
+        CAL_ORIGIN ? { embedJsUrl: `${CAL_ORIGIN}/embed.js` } : undefined,
+      );
+
+      // Listen for successful booking to hide the mask
+      cal("on", {
+        action: "bookingSuccessful",
+        callback: () => {
+          setIsBooked(true);
+        },
+      });
+
+      cal("ui", {
+        theme: "dark",
+        styles: { branding: { brandColor: "#FF4F00" } },
+        hideEventTypeDetails: true,
+        layout: "month_view",
+      });
+    })();
+  }, [router]);
+
   return (
     <PageLayout showFooter={false}>
       <div className="min-h-[80vh] flex flex-col items-center justify-center px-4 sm:px-6 md:px-12 lg:px-24 py-16 grain">
-        <div className="max-w-3xl w-full text-center">
+        <div className="max-w-4xl w-full text-center">
           {/* Status indicator */}
           <div className="inline-flex items-center gap-2 px-4 py-2 border border-accent bg-accent/10 mb-8">
             <CheckCircle className="w-4 h-4 text-accent" />
@@ -41,7 +77,7 @@ const MissionBriefing = () => {
             {[
               {
                 icon: Clock,
-                label: "30-MINUTE CALL",
+                label: "60-MINUTE CALL",
                 desc: "Focused strategy session",
               },
               {
@@ -67,7 +103,7 @@ const MissionBriefing = () => {
             ))}
           </div>
 
-          {/* Calendly placeholder */}
+          {/* Cal.com placeholder */}
           <div className="border border-border p-8 md:p-12 mb-8 bg-background">
             <Calendar className="w-12 h-12 text-accent mx-auto mb-6" />
             <h2 className="text-2xl font-bold tracking-wide mb-4">
@@ -78,12 +114,35 @@ const MissionBriefing = () => {
               Mon–Fri.
             </p>
 
-            {/* Calendly embed */}
-            <div className="bg-background border border-border h-[700px] overflow-hidden">
-              <InlineWidget
-                url={CALENDLY_LINK}
-                styles={{ height: "100%", width: "100%" }}
+            {/* Cal.com embed with branding mask */}
+            <div
+              className={`bg-background border border-border overflow-hidden shadow-2xl relative group transition-all duration-1000 ease-in-out ${isBooked ? "h-[800px]" : "h-[540px]"}`}
+            >
+              {/* Top ambient glow */}
+              <div className="absolute inset-0 bg-accent/5 pointer-events-none" />
+
+              <Cal
+                calLink={CAL_LINK}
+                style={{ width: "100%", height: "100%" }}
+                config={{
+                  layout: "month_view",
+                  theme: "dark",
+                  hideEventTypeDetails: "true",
+                  name: name || undefined,
+                  email: email || undefined,
+                  notes: notes || undefined,
+                }}
+                calOrigin={CAL_ORIGIN || undefined}
               />
+
+              {/* Solid Branding Mask / Footer Cover - Blocks clicks to hidden branding */}
+              {!isBooked && (
+                <div className="absolute bottom-0 left-0 right-0 h-20 bg-background border-t border-border flex flex-col items-center justify-center z-50">
+                  <div className="text-[10px] tracking-ultrawide text-muted-foreground/40 uppercase">
+                    Mission Control Scheduling Terminal
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 

@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-const SMTP_HOST = process.env.SMTP_HOST || "smtp.hostinger.com";
-const SMTP_PORT = parseInt(process.env.SMTP_PORT || "465");
+const SMTP_HOST = process.env.SMTP_HOST || "live.smtp.mailtrap.io";
+const SMTP_PORT = parseInt(process.env.SMTP_PORT || "587");
 const SMTP_USER = process.env.SMTP_USER;
 const SMTP_PASS = process.env.SMTP_PASS;
-const SMTP_FROM = process.env.SMTP_FROM;
-const TO_EMAIL = process.env.SMTP_USER;
+const SMTP_FROM = process.env.SMTP_FROM || "inquiry@saadqadir.com";
+const TO_EMAIL = process.env.RECIPIENT_EMAIL || "saad@alphabrackets.com";
 
 const STATUS_LABELS: Record<string, string> = {
   idea: "Concept Stage — Validated idea, no code yet",
@@ -23,7 +23,10 @@ const TIER_LABELS: Record<string, string> = {
 export async function POST(req: NextRequest) {
   if (!SMTP_USER || !SMTP_PASS) {
     console.error("SMTP credentials are not configured");
-    return NextResponse.json({ error: "Email service not configured" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Email service not configured" },
+      { status: 500 },
+    );
   }
 
   try {
@@ -38,7 +41,10 @@ export async function POST(req: NextRequest) {
     } = body;
 
     if (!name || !email) {
-      return NextResponse.json({ error: "Name and email are required" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Name and email are required" },
+        { status: 400 },
+      );
     }
 
     const status = projectStatus
@@ -74,7 +80,7 @@ Investment Tier: ${tier}
     const transporter = nodemailer.createTransport({
       host: SMTP_HOST,
       port: SMTP_PORT,
-      secure: true,
+      secure: SMTP_PORT === 465, // Use true for 465, false for 587
       auth: {
         user: SMTP_USER,
         pass: SMTP_PASS,
@@ -94,6 +100,9 @@ Investment Tier: ${tier}
     return NextResponse.json({ success: true, id: info.messageId });
   } catch (error) {
     console.error("Error sending email:", error);
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 },
+    );
   }
 }

@@ -82,7 +82,8 @@ A high-performance personal portfolio website featuring a unique "Mission Contro
 
     # Public Variables
     NEXT_PUBLIC_URL=http://localhost:3000
-    VITE_CALENDLY_LINK=your-link # Backward compatibility or update as needed
+    NEXT_PUBLIC_CAL_LINK=your-cal-link
+    VITE_CAL_LINK=your-cal-link # For flexibility across different build tools
     ```
 
 4.  **Run Development Server**

@@ -12,8 +12,12 @@ import { sendContactEmail } from "@/lib/emailjs";
 import { useToast } from "@/hooks/use-toast";
 
 type FormStep = 1 | 2 | 3;
-type ProjectStatus = "idea" | "prototype" | "rescue" | null;
-type InvestmentTier = "seed" | "growth" | "enterprise" | null;
+import {
+  ProjectStatus,
+  InvestmentTier,
+  STATUS_OPTIONS,
+  INVESTMENT_OPTIONS,
+} from "@/constants/contact";
 
 interface FormData {
   name: string;
@@ -67,10 +71,16 @@ const ContactPage = () => {
       const emailSent = await sendContactEmail(formData);
 
       if (emailSent) {
+        // Store user data to pre-fill the booking link
+        sessionStorage.setItem("mission_control_access", "true");
+        sessionStorage.setItem("user_name", formData.name);
+        sessionStorage.setItem("user_email", formData.email);
+        sessionStorage.setItem("user_notes", formData.projectBrief);
+
         toast({
-          title: "Request submitted",
+          title: "Inquiry Received",
           description:
-            "Your project inquiry has been sent. I'll respond within 24–48 hours.",
+            "Your project details are logged. Next step: Schedule your discovery session.",
         });
       } else {
         toast({
@@ -87,58 +97,14 @@ const ContactPage = () => {
       });
     }
 
-    // Conditional redirect based on investment tier
-    if (formData.investmentTier === "seed") {
-      router.push("/mission-control/standby");
-    } else {
-      router.push("/mission-control/briefing");
-    }
+    // Redirect all tiers to briefing/meeting booking
+    router.push("/mission-control/briefing");
 
     setIsSubmitting(false);
   };
 
-  const statusOptions = [
-    {
-      value: "idea",
-      label: "CONCEPT STAGE",
-      desc: "I have a validated idea but no code yet",
-    },
-    {
-      value: "prototype",
-      label: "WORKING PROTOTYPE",
-      desc: "MVP exists—needs scaling or refinement",
-    },
-    {
-      value: "rescue",
-      label: "LEGACY OVERHAUL",
-      desc: "Existing system needs complete restructuring",
-    },
-  ];
-
-  const investmentOptions = [
-    {
-      value: "seed",
-      label: "STARTER",
-      range: "$1K – $5K",
-      desc: "Ideal for MVPs and initial builds",
-    },
-    {
-      value: "growth",
-      label: "GROWTH",
-      range: "$5K – $15K",
-      desc: "Full feature builds and integrations",
-    },
-    {
-      value: "enterprise",
-      label: "ENTERPRISE",
-      range: "$15K+",
-      desc: "Complex systems and ongoing partnership",
-    },
-  ];
-
   return (
     <PageLayout>
-
       <section className="py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24 grain min-h-[80vh]">
         <div className="max-w-4xl mx-auto">
           {/* Section header */}
@@ -248,7 +214,7 @@ const ContactPage = () => {
                 <p className="text-xs tracking-brutal text-muted-foreground mb-6">
                   WHERE IS YOUR PROJECT RIGHT NOW?
                 </p>
-                {statusOptions.map((option) => (
+                {STATUS_OPTIONS.map((option) => (
                   <button
                     key={option.value}
                     onClick={() =>
@@ -291,7 +257,7 @@ const ContactPage = () => {
                 <p className="text-xs tracking-brutal text-muted-foreground mb-6">
                   WHAT'S YOUR INVESTMENT RANGE?
                 </p>
-                {investmentOptions.map((option) => (
+                {INVESTMENT_OPTIONS.map((option) => (
                   <button
                     key={option.value}
                     onClick={() =>
@@ -374,7 +340,8 @@ const ContactPage = () => {
 
           {/* Trust note */}
           <p className="text-center text-sm text-muted-foreground mt-8">
-            Your information is secure. I'll respond within 24–48 hours.
+            Your information is secure. Next, you'll be redirected to book a
+            strategy call.
           </p>
 
           {/* Alternative contact */}
